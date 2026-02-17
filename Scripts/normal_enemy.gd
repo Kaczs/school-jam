@@ -10,13 +10,13 @@ func _ready() -> void:
 	if goal[0]:
 		navigation_agent.target_position = goal[0].global_position
 	else:
-		push_error(self, " could not find Goal")
+		push_warning(self, " could not find Goal")
 
 
 func _physics_process(delta: float) -> void:
-	if !navigation_agent.is_target_reachable():
-		push_error(self, " is lost (target not reachable)")
-		return
+	#if !navigation_agent.is_target_reachable():
+		#push_warning(self, " is lost (target not reachable)")
+		#return
 	
 	if !navigation_agent.is_target_reached():
 		var nav_point_direction = to_local(navigation_agent.get_next_path_position()).normalized()
