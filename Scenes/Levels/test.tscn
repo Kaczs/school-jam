@@ -1,3 +1,33 @@
 [gd_scene format=3 uid="uid://dmcno5bitm0oc"]
 
-[node name="Test" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://irse0lxtx8lp" path="res://Scenes/Enemies/normal_enemy.tscn" id="1_cmgem"]
+[ext_resource type="PackedScene" uid="uid://beie4lcm40b24" path="res://Scenes/goal.tscn" id="2_4te2q"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4te2q"]
+vertices = PackedVector2Array(281.70313, 617.6797, 10.9296875, 636.28125, 7.0625, 10.078125, 266.6797, 126.8125, 1142.0391, 19.90625, 769.6328, 136.17969, 1144.9531, 636.6875, 788.6172, 626.27344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1149, -9, 1155, 647, 779, 636, 778, 138, 286, 137, 285, 640, 1, 647, 3, -12)])
+
+[node name="Test" type="Node2D" unique_id=340832896]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=306073937]
+position = Vector2(-1, 7)
+navigation_polygon = SubResource("NavigationPolygon_4te2q")
+
+[node name="NormalEnemy" parent="." unique_id=509141931 instance=ExtResource("1_cmgem")]
+position = Vector2(78, 207)
+gravity_scale = 0.0
+linear_damp = 0.3
+
+[node name="Goal" parent="." unique_id=967983182 instance=ExtResource("2_4te2q")]
+position = Vector2(971, 422)
+
+[node name="NormalEnemy2" parent="." unique_id=924509886 instance=ExtResource("1_cmgem")]
+position = Vector2(156, 414)
+gravity_scale = 0.0
+linear_damp = 0.3
+
+[node name="NormalEnemy3" parent="." unique_id=1249261680 instance=ExtResource("1_cmgem")]
+position = Vector2(93, 558)
+gravity_scale = 0.0
+linear_damp = 0.3

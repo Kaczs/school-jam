@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://br1xs5td3kolq"]
+
+[node name="Action" type="Control" unique_id=13723114]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1226282905]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 50.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="InputMapDisplay" type="Panel" parent="MarginContainer" unique_id=709315049]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/InputMapDisplay" unique_id=498901672]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/InputMapDisplay/MarginContainer" unique_id=1478968843]
+layout_mode = 2
+
+[node name="ActionName" type="Label" parent="MarginContainer/InputMapDisplay/MarginContainer/HBoxContainer" unique_id=1709899695]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/InputMapDisplay/MarginContainer/HBoxContainer" unique_id=2121860799]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxButtonContainer" type="HBoxContainer" parent="MarginContainer/InputMapDisplay/MarginContainer/HBoxContainer" unique_id=1822309411]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
