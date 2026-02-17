@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://tyig0pvks8tv"]
+
+[ext_resource type="Script" uid="uid://bya1872hrs61r" path="res://Scripts/wind_component.gd" id="1_bljqw"]
+
+[node name="WindComponent" type="Node2D" unique_id=1070236565]
+script = ExtResource("1_bljqw")
+
+[node name="Button" type="Button" parent="." unique_id=235188524]
+offset_left = 57.0
+offset_top = -96.0
+offset_right = 109.0
+offset_bottom = -65.0
+text = "Lock"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

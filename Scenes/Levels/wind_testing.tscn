@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cyiyd1u3qpvu1"]
+
+[ext_resource type="Texture2D" uid="uid://bvn10qkkhydl2" path="res://Assets/Sprites/icon.svg" id="1_1be16"]
+[ext_resource type="PackedScene" uid="uid://bojvjttovmt8" path="res://Scenes/wind_controller.tscn" id="1_rbtxk"]
+[ext_resource type="PackedScene" uid="uid://dm8wart2qijrc" path="res://Scenes/box.tscn" id="2_e32ip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m7ro"]
+size = Vector2(130, 131.5)
+
+[node name="WindTesting" type="Node2D" unique_id=1273697257]
+
+[node name="Box4" parent="." unique_id=1489236819 instance=ExtResource("2_e32ip")]
+position = Vector2(328, 413)
+gravity_scale = 0.0
+
+[node name="Box5" parent="." unique_id=658448815 instance=ExtResource("2_e32ip")]
+position = Vector2(789, 158)
+gravity_scale = 0.0
+
+[node name="Box2" parent="." unique_id=1866003390 instance=ExtResource("2_e32ip")]
+position = Vector2(534, 223)
+gravity_scale = 0.0
+
+[node name="Box3" type="RigidBody2D" parent="." unique_id=437135025]
+position = Vector2(173, 163)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box3" unique_id=1706067882]
+position = Vector2(0, -0.75)
+shape = SubResource("RectangleShape2D_3m7ro")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box3" unique_id=496771865]
+modulate = Color(0.62152386, 0.62152386, 0.6215238, 1)
+texture = ExtResource("1_1be16")
+
+[node name="WindController" parent="." unique_id=1545098080 instance=ExtResource("1_rbtxk")]

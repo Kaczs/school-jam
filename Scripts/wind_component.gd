@@ -1,0 +1,27 @@
+class_name WindComponent
+extends Node2D
+
+## toggled = true means you want wind to affect it
+@export var toggled := true
+
+var parent_body:RigidBody2D
+
+func _ready():
+	parent_body = get_parent() as RigidBody2D
+	if parent_body == null:
+		push_error("Parent of WindComponent needs to be a Rigid Body")
+	if toggled == true:
+		add_to_group("affected by wind")
+
+## This will be used in game to lock towers and obstacles in place,
+## and prevent wind from affecting them.
+func toggle():
+	toggled = not toggled
+	if toggled == false:
+		remove_from_group("affected by wind")
+	if toggled == true:
+		add_to_group("affected by wind")
+
+func _on_button_pressed() -> void:
+	toggle()
+	print("Button toggled, groups are: ", get_groups())

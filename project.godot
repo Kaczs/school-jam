@@ -15,8 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="School Jam"
+run/main_scene="uid://cyiyd1u3qpvu1"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Assets/Sprites/icon.svg"
+
+[global_group]
+
+"affected by wind"=""
 
 [rendering]
 
