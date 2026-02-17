@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dm8wart2qijrc"]
+
+[ext_resource type="Texture2D" uid="uid://bvn10qkkhydl2" path="res://Assets/Sprites/icon.svg" id="1_ego7h"]
+[ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="2_2jyye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m7ro"]
+size = Vector2(130, 131.5)
+
+[node name="Box" type="RigidBody2D" unique_id=1615796132]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=764754171]
+position = Vector2(0, -0.75)
+shape = SubResource("RectangleShape2D_3m7ro")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097623701]
+texture = ExtResource("1_ego7h")
+
+[node name="WindComponent" parent="." unique_id=1070236565 instance=ExtResource("2_2jyye")]
