@@ -20,18 +20,19 @@ func _input(event: InputEvent) -> void:
 		local_wind(drag_direction)
 		accumulated_drag = Vector2.ZERO
 
+## Use wind on everything in the group
 func global_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
-		target.parent_body.apply_force(Vector2(direction * wind_force))
+		target.parent_body.apply_force(direction * wind_force)
 		# Slow enemies temp. when hitting them with wind?
 
-## Get's the bodies near the mouse drag, as opposed to the entire group
+## Use wind on bodies near the mouse, as opposed to the entire group
 func local_wind(direction:Vector2):
 	print("Local wind")
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
-		if target.position.distance_to(get_viewport().get_mouse_position()) <= local_size:
+		if target.global_position.distance_to(get_viewport().get_mouse_position()) <= local_size:
 			print("Target distance: ", target.global_position.distance_to(get_viewport().get_mouse_position()))
 			print("Applying wind")
-			target.parent_body.apply_force(Vector2(direction * wind_force))
+			target.parent_body.apply_force(direction * wind_force)
