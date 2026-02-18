@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://hvkuvt05v2x4"]
+
+[ext_resource type="Script" uid="uid://d3d2hk67lu7h4" path="res://MainMenu/main.gd" id="1_gfqty"]
+[ext_resource type="PackedScene" uid="uid://d4m7rbp05e81j" path="res://Scenes/Settings/settings_menu.tscn" id="2_jx6g1"]
+
+[node name="Control" type="Control" unique_id=783469329]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gfqty")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1473585659]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1362865375]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer" unique_id=1103024154]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=201335658]
+layout_mode = 2
+text = "Play"
+
+[node name="Settings" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=1766864732]
+layout_mode = 2
+text = "Settings"
+
+[node name="Settings2" parent="CenterContainer/HBoxContainer" unique_id=1794996779 instance=ExtResource("2_jx6g1")]
+visible = false
+custom_minimum_size = Vector2(700, 500)
+layout_mode = 2
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
