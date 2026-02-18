@@ -1,6 +1,6 @@
 extends Node
 
-@export var wind_force = 1000
+@export var wind_force = 80000
 var drag_direction = Vector2(0, 0)
 var accumulated_drag = Vector2.ZERO
 @export var local_size:float = 600
@@ -43,4 +43,4 @@ func local_wind(direction:Vector2):
 	for target in targets:
 		if target.global_position.distance_to(get_viewport().get_mouse_position()) <= local_size:
 			#print("Target distance: ", target.global_position.distance_to(get_viewport().get_mouse_position()))
-			target.parent_body.apply_force(direction * (wind_force*2))
+			target.parent_body.apply_force(direction * (wind_force*1.7))
