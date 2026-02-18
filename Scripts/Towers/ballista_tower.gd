@@ -10,8 +10,11 @@ func _process(_delta):
 		# Face the enemy
 		var angle = global_position.angle_to_point(targets[0].global_position)
 		turret.rotation = angle + PI/2
-		if cooldown_timer.is_stopped():
-			cooldown_timer.start()		
+		# Start the timer and spawn an initial shot
+		if cooldown_timer.time_left <= 0:
+			cooldown_timer.start()
+			spawn_projectile()
+				
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.get_node_or_null("HealthComponent"):
@@ -23,12 +26,14 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 		targets.erase(body)
 	pass # Replace with function body.
 
+func spawn_projectile():
+	var new_projectile = projectile.instantiate()
+	new_projectile.assign_target(targets[0])
+	get_tree().get_root().add_child(new_projectile)
+	new_projectile.position = position	
+
 
 func _on_cooldown_timeout() -> void:
+	# Every timeout 
 	if targets.is_empty() == false:
-		print("Creating projectile")
-		var new_projectile = projectile.instantiate()
-		new_projectile.assign_target(targets[0])
-		get_tree().get_root().add_child(new_projectile)
-		new_projectile.position = position
-		#new_projectile.position = position
+		spawn_projectile()

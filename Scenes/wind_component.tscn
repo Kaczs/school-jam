@@ -6,10 +6,10 @@
 script = ExtResource("1_bljqw")
 
 [node name="Button" type="Button" parent="." unique_id=235188524]
-offset_left = 57.0
-offset_top = -96.0
-offset_right = 109.0
-offset_bottom = -65.0
+offset_left = 36.0
+offset_top = -73.0
+offset_right = 88.0
+offset_bottom = -42.0
 text = "Lock"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

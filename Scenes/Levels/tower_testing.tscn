@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="3_m8a1i"]
 [ext_resource type="PackedScene" uid="uid://dm8wart2qijrc" path="res://Scenes/box.tscn" id="4_hdrtn"]
 [ext_resource type="Texture2D" uid="uid://bvn10qkkhydl2" path="res://Assets/Sprites/icon.svg" id="6_qe3ev"]
+[ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="6_vqje4"]
+[ext_resource type="Texture2D" uid="uid://cg71fyi4gbplc" path="res://Assets/Sprites/EmptyWindBottle.png" id="7_vqje4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hohpo"]
 vertices = PackedVector2Array(1914.0078, 0.9765625, 1915.9766, 1069.9375, 13, 1060.0469, 13, -1.9765625)
@@ -14,7 +16,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1924, -9, 1926, 1080, 3
 [node name="TowerTesting" type="Node2D" unique_id=579830248]
 
 [node name="WindController" parent="." unique_id=1545098080 instance=ExtResource("1_hohpo")]
-wind_force = 100000
+wind_force = 80000
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=175698455]
 position = Vector2(-1, 7)
@@ -23,31 +25,49 @@ navigation_polygon = SubResource("NavigationPolygon_hohpo")
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("2_cdicy")]
 position = Vector2(1798, 986)
 
-[node name="NormalEnemy8" parent="." unique_id=544796457 instance=ExtResource("3_m8a1i")]
-position = Vector2(80, 184)
-linear_damp = 3.0
-
-[node name="NormalEnemy9" parent="." unique_id=924509886 instance=ExtResource("3_m8a1i")]
-position = Vector2(98, 979)
-linear_damp = 3.0
-
-[node name="NormalEnemy10" parent="." unique_id=1971297874 instance=ExtResource("3_m8a1i")]
-position = Vector2(1782, 99)
-linear_damp = 3.0
-
 [node name="Box4" parent="." unique_id=1615796132 instance=ExtResource("4_hdrtn")]
-position = Vector2(565, 447)
+position = Vector2(848, 683)
+
+[node name="Box5" parent="." unique_id=1251485808 instance=ExtResource("4_hdrtn")]
+position = Vector2(450, 909)
+
+[node name="BallistaTower" parent="." unique_id=1845065025 instance=ExtResource("6_vqje4")]
+position = Vector2(1010, 682)
+
+[node name="NormalEnemy" parent="." unique_id=924509886 instance=ExtResource("3_m8a1i")]
+position = Vector2(76, 644)
+
+[node name="NormalEnemy2" parent="." unique_id=937981689 instance=ExtResource("3_m8a1i")]
+position = Vector2(100, 892)
+
+[node name="NormalEnemy3" parent="." unique_id=1444113877 instance=ExtResource("3_m8a1i")]
+position = Vector2(234, 514)
+
+[node name="NormalEnemy4" parent="." unique_id=961194345 instance=ExtResource("3_m8a1i")]
+position = Vector2(234, 514)
+
+[node name="EmptyWindBottle" type="Sprite2D" parent="." unique_id=489990750]
+position = Vector2(1820, 96)
+texture = ExtResource("7_vqje4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1824534567]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1245305268]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_top = 6.0
+offset_right = 130.0
+offset_bottom = 134.0
+grow_horizontal = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1271000071]
+modulate = Color(0, 1, 1, 1)
 layout_mode = 2
 texture = ExtResource("6_qe3ev")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=750723332]
+modulate = Color(1, 0.21176471, 0.3137255, 1)
 layout_mode = 2
 texture = ExtResource("6_qe3ev")
