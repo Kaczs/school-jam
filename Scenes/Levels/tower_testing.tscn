@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cv28q5shj67n4"]
+
+[ext_resource type="PackedScene" uid="uid://bojvjttovmt8" path="res://Scenes/wind_controller.tscn" id="1_hohpo"]
+[ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="2_cdicy"]
+[ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="3_m8a1i"]
+[ext_resource type="PackedScene" uid="uid://dm8wart2qijrc" path="res://Scenes/box.tscn" id="4_hdrtn"]
+[ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="5_t3813"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hohpo"]
+vertices = PackedVector2Array(1914.0078, 0.9765625, 1915.9766, 1069.9375, 13, 1060.0469, 13, -1.9765625)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1924, -9, 1926, 1080, 3, 1070, 3, -12)])
+
+[node name="TowerTesting" type="Node2D" unique_id=579830248]
+
+[node name="WindController" parent="." unique_id=1545098080 instance=ExtResource("1_hohpo")]
+wind_force = 100000
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=175698455]
+position = Vector2(-1, 7)
+navigation_polygon = SubResource("NavigationPolygon_hohpo")
+
+[node name="Goal" parent="." unique_id=967983182 instance=ExtResource("2_cdicy")]
+position = Vector2(1798, 986)
+
+[node name="NormalEnemy3" parent="." unique_id=885104307 instance=ExtResource("3_m8a1i")]
+position = Vector2(260, 184)
+linear_damp = 3.0
+
+[node name="NormalEnemy7" parent="." unique_id=166982286 instance=ExtResource("3_m8a1i")]
+position = Vector2(144, 437)
+linear_damp = 3.0
+
+[node name="Box4" parent="." unique_id=1615796132 instance=ExtResource("4_hdrtn")]
+position = Vector2(929, 777)
+
+[node name="BallistaTower" parent="." unique_id=409593298 instance=ExtResource("5_t3813")]
+position = Vector2(800, 372)
