@@ -7,16 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://bvn10qkkhydl2" path="res://Assets/Sprites/icon.svg" id="6_qe3ev"]
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="6_vqje4"]
 [ext_resource type="Texture2D" uid="uid://cg71fyi4gbplc" path="res://Assets/Sprites/EmptyWindBottle.png" id="7_vqje4"]
+[ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="8_18byr"]
+[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="9_jrs7o"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hohpo"]
 vertices = PackedVector2Array(1914.0078, 0.9765625, 1915.9766, 1069.9375, 13, 1060.0469, 13, -1.9765625)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1924, -9, 1926, 1080, 3, 1070, 3, -12)])
 
+[sub_resource type="Resource" id="Resource_xqoth"]
+script = ExtResource("9_jrs7o")
+scene = ExtResource("3_m8a1i")
+count = 10
+metadata/_custom_type_script = "uid://bvjbq0juon6qg"
+
 [node name="TowerTesting" type="Node2D" unique_id=579830248]
 
 [node name="WindController" parent="." unique_id=1545098080 instance=ExtResource("1_hohpo")]
-wind_force = 80000
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=175698455]
 position = Vector2(-1, 7)
@@ -32,7 +39,7 @@ position = Vector2(848, 683)
 position = Vector2(450, 909)
 
 [node name="BallistaTower" parent="." unique_id=1845065025 instance=ExtResource("6_vqje4")]
-position = Vector2(1010, 682)
+position = Vector2(952, 700)
 
 [node name="NormalEnemy" parent="." unique_id=924509886 instance=ExtResource("3_m8a1i")]
 position = Vector2(76, 644)
@@ -71,3 +78,7 @@ texture = ExtResource("6_qe3ev")
 modulate = Color(1, 0.21176471, 0.3137255, 1)
 layout_mode = 2
 texture = ExtResource("6_qe3ev")
+
+[node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("8_18byr")]
+position = Vector2(409, 404)
+to_spawn = Array[ExtResource("9_jrs7o")]([SubResource("Resource_xqoth")])
