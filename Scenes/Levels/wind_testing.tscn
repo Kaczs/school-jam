@@ -14,7 +14,7 @@ position = Vector2(328, 413)
 gravity_scale = 0.0
 
 [node name="Box5" parent="." unique_id=658448815 instance=ExtResource("2_e32ip")]
-position = Vector2(789, 158)
+position = Vector2(859, 199)
 gravity_scale = 0.0
 
 [node name="Box2" parent="." unique_id=1866003390 instance=ExtResource("2_e32ip")]
@@ -34,3 +34,4 @@ modulate = Color(0.62152386, 0.62152386, 0.6215238, 1)
 texture = ExtResource("1_1be16")
 
 [node name="WindController" parent="." unique_id=1545098080 instance=ExtResource("1_rbtxk")]
+wind_force = 10000
