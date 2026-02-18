@@ -27,6 +27,14 @@ position = Vector2(1798, 986)
 position = Vector2(80, 184)
 linear_damp = 3.0
 
+[node name="NormalEnemy9" parent="." unique_id=924509886 instance=ExtResource("3_m8a1i")]
+position = Vector2(98, 979)
+linear_damp = 3.0
+
+[node name="NormalEnemy10" parent="." unique_id=1971297874 instance=ExtResource("3_m8a1i")]
+position = Vector2(1782, 99)
+linear_damp = 3.0
+
 [node name="Box4" parent="." unique_id=1615796132 instance=ExtResource("4_hdrtn")]
 position = Vector2(565, 447)
 

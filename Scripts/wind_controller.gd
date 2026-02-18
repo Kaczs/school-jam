@@ -3,7 +3,7 @@ extends Node
 @export var wind_force = 1000
 var drag_direction = Vector2(0, 0)
 var accumulated_drag = Vector2.ZERO
-@export var local_size:float = 400
+@export var local_size:float = 600
 
 # Getting the mouse drags to know what direction to send wind.
 func _input(event: InputEvent) -> void:
