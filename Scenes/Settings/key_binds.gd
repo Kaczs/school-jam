@@ -10,7 +10,7 @@ var rebindable_actions:Dictionary = {
 
 @onready var container:VBoxContainer = $ScrollContainer/VBoxContainer
 
-var scene:PackedScene = preload("res://Settings/action.tscn")
+var scene:PackedScene = preload("res://Scenes/Settings/action.tscn")
 
 func _ready() -> void:
 	for action in rebindable_actions:
@@ -23,9 +23,3 @@ func _ready() -> void:
 			button.input_event = event
 			button.mother = self
 			key_binding.find_child("HBoxButtonContainer",true).add_child(button)
-
-
-
-func _input(event: InputEvent) -> void:
-	if event.is_action("test"):
-		print(event, " was pressed")
