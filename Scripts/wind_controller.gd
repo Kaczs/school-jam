@@ -2,20 +2,36 @@ extends Node
 
 @export var wind_force = 1000
 var drag_direction = Vector2(0, 0)
-
-func global_wind(direction:Vector2):
-	print("Winnnnnd")
-	var targets = get_tree().get_nodes_in_group("affected by wind")
-	for target in targets:
-		target.parent_body.apply_force(Vector2(direction.x * wind_force, direction.y * wind_force))
-		# Slow enemies temp. when hitting them with wind?
+var accumulated_drag = Vector2.ZERO
+@export var local_size:float = 400
 
 # Getting the mouse drags to know what direction to send wind.
 func _input(event: InputEvent) -> void:
 	# If we press wind button, start tracking the motion.
 	if Input.is_action_pressed("wind"):
 		if event is InputEventMouseMotion:
-				drag_direction = event.relative.normalized()
+			accumulated_drag += event.relative
 	# Once we release the button act on that motion
 	if Input.is_action_just_released("wind"):
-		global_wind(drag_direction)
+		drag_direction = accumulated_drag.normalized()
+		# if in global wind mode
+		#global_wind(drag_direction)
+		# if in local wind mode
+		local_wind(drag_direction)
+		accumulated_drag = Vector2.ZERO
+
+func global_wind(direction:Vector2):
+	var targets = get_tree().get_nodes_in_group("affected by wind")
+	for target in targets:
+		target.parent_body.apply_force(Vector2(direction * wind_force))
+		# Slow enemies temp. when hitting them with wind?
+
+## Get's the bodies near the mouse drag, as opposed to the entire group
+func local_wind(direction:Vector2):
+	print("Local wind")
+	var targets = get_tree().get_nodes_in_group("affected by wind")
+	for target in targets:
+		if target.position.distance_to(get_viewport().get_mouse_position()) <= local_size:
+			print("Target distance: ", target.global_position.distance_to(get_viewport().get_mouse_position()))
+			print("Applying wind")
+			target.parent_body.apply_force(Vector2(direction * wind_force))

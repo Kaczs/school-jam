@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="2_cdicy"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="3_m8a1i"]
 [ext_resource type="PackedScene" uid="uid://dm8wart2qijrc" path="res://Scenes/box.tscn" id="4_hdrtn"]
-[ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="5_t3813"]
+[ext_resource type="Texture2D" uid="uid://bvn10qkkhydl2" path="res://Assets/Sprites/icon.svg" id="6_qe3ev"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hohpo"]
 vertices = PackedVector2Array(1914.0078, 0.9765625, 1915.9766, 1069.9375, 13, 1060.0469, 13, -1.9765625)
@@ -23,16 +23,23 @@ navigation_polygon = SubResource("NavigationPolygon_hohpo")
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("2_cdicy")]
 position = Vector2(1798, 986)
 
-[node name="NormalEnemy3" parent="." unique_id=885104307 instance=ExtResource("3_m8a1i")]
-position = Vector2(260, 184)
-linear_damp = 3.0
-
-[node name="NormalEnemy7" parent="." unique_id=166982286 instance=ExtResource("3_m8a1i")]
-position = Vector2(144, 437)
+[node name="NormalEnemy8" parent="." unique_id=544796457 instance=ExtResource("3_m8a1i")]
+position = Vector2(80, 184)
 linear_damp = 3.0
 
 [node name="Box4" parent="." unique_id=1615796132 instance=ExtResource("4_hdrtn")]
 position = Vector2(565, 447)
 
-[node name="BallistaTower" parent="." unique_id=409593298 instance=ExtResource("5_t3813")]
-position = Vector2(1237, 512)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1824534567]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1245305268]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1271000071]
+layout_mode = 2
+texture = ExtResource("6_qe3ev")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=750723332]
+layout_mode = 2
+texture = ExtResource("6_qe3ev")
