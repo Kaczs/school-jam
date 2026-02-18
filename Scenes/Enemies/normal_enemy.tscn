@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c5ukg66rndiky" path="res://Scripts/normal_enemy.gd" id="1_06vei"]
 [ext_resource type="Texture2D" uid="uid://8a4a4np63gb" path="res://Assets/Sprites/Treeorbushidk.png" id="2_4j5cq"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="3_0u4wu"]
+[ext_resource type="Script" uid="uid://dlnn6cuk6ygi6" path="res://Scripts/health_component.gd" id="4_mtu75"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j5cq"]
 radius = 64.00781
@@ -29,5 +30,9 @@ max_speed = 1000.0
 
 [node name="WindComponent" parent="." unique_id=1070236565 instance=ExtResource("3_0u4wu")]
 visible = false
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1131251283]
+script = ExtResource("4_mtu75")
+max_health = 100
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

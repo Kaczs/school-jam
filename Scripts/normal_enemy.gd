@@ -35,7 +35,6 @@ func _physics_process(delta: float) -> void:
 
 
 func goal_reached():
-	print("goal reached")
 	pass
 	#kill enemy and remove health from player
 
