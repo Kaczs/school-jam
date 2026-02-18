@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c8v0rvgowuerw"]
+
+[ext_resource type="PackedScene" uid="uid://bojvjttovmt8" path="res://Scenes/wind_controller.tscn" id="1_7u4ml"]
+[ext_resource type="Texture2D" uid="uid://bvn10qkkhydl2" path="res://Assets/Sprites/icon.svg" id="2_16p8j"]
+[ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="3_c0r4e"]
+[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="4_m0h5h"]
+[ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="5_20uw2"]
+[ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="6_m0h5h"]
+[ext_resource type="PackedScene" uid="uid://dm8wart2qijrc" path="res://Scenes/box.tscn" id="7_20uw2"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7u4ml"]
+vertices = PackedVector2Array(1914.0078, 0.9765625, 1915.9766, 1069.9375, 13, 1060.0469, 13, -1.9765625)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1924, -9, 1926, 1080, 3, 1070, 3, -12)])
+
+[sub_resource type="Resource" id="Resource_xqoth"]
+script = ExtResource("4_m0h5h")
+scene = ExtResource("5_20uw2")
+count = 10
+metadata/_custom_type_script = "uid://bvjbq0juon6qg"
+
+[node name="Level1" type="Node2D" unique_id=1513130103]
+
+[node name="WindController" parent="." unique_id=1545098080 instance=ExtResource("1_7u4ml")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=25979891]
+position = Vector2(-1, 7)
+navigation_polygon = SubResource("NavigationPolygon_7u4ml")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=731908525]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1571363831]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_top = 6.0
+offset_right = 130.0
+offset_bottom = 134.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=947628330]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+texture = ExtResource("2_16p8j")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=150033113]
+modulate = Color(1, 0.21176471, 0.3137255, 1)
+layout_mode = 2
+texture = ExtResource("2_16p8j")
+
+[node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("3_c0r4e")]
+position = Vector2(68, 79)
+to_spawn = Array[ExtResource("4_m0h5h")]([SubResource("Resource_xqoth")])
+
+[node name="Goal" parent="." unique_id=967983182 instance=ExtResource("6_m0h5h")]
+position = Vector2(1829, 998)
+
+[node name="Box" parent="." unique_id=1615796132 instance=ExtResource("7_20uw2")]
+position = Vector2(202, 269)
+
+[node name="Box2" parent="." unique_id=856571838 instance=ExtResource("7_20uw2")]
+position = Vector2(310, 180)
