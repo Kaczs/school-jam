@@ -1,14 +1,21 @@
 extends Control
 
+@onready var level_select = $LevelSelect
 @onready var settings = $CenterContainer/HBoxContainer/Settings2
+@onready var main_menu = $CenterContainer
 
 func _on_play_pressed() -> void:
-	pass # Replace with function body.
-
+	main_menu.visible = false
+	level_select.visible = true
+	
 
 func _on_settings_pressed() -> void:
 	settings.visible = not settings.visible
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("UI_Back"):
-		settings.visible = false
+		if settings.visible:
+			settings.visible = false
+		elif not main_menu.visible:
+			main_menu.visible = true
+			level_select.visible = false

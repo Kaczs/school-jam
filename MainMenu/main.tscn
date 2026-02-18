@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3d2hk67lu7h4" path="res://MainMenu/main.gd" id="1_gfqty"]
 [ext_resource type="PackedScene" uid="uid://d4m7rbp05e81j" path="res://Scenes/Settings/settings_menu.tscn" id="2_jx6g1"]
+[ext_resource type="Script" uid="uid://blbbq7kj04auj" path="res://MainMenu/level_select.gd" id="3_lweib"]
 
 [node name="Control" type="Control" unique_id=783469329]
 layout_mode = 3
@@ -37,6 +38,19 @@ text = "Settings"
 [node name="Settings2" parent="CenterContainer/HBoxContainer" unique_id=1794996779 instance=ExtResource("2_jx6g1")]
 visible = false
 custom_minimum_size = Vector2(700, 500)
+layout_mode = 2
+
+[node name="LevelSelect" type="CenterContainer" parent="." unique_id=1932358752]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_lweib")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect" unique_id=335956720]
 layout_mode = 2
 
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
