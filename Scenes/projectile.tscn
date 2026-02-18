@@ -4,19 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://c3metklfbaugy" path="res://Assets/Sprites/StoneSmall.png" id="2_tl4hk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d4467"]
-radius = 50.01
+radius = 28.284271
 
 [node name="Projectile" type="Node2D" unique_id=1414743103]
 script = ExtResource("1_yr2qt")
 speed = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1003098276]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_tl4hk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1930564038]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=627920039]
-position = Vector2(-1, 8)
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_d4467")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

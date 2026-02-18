@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="4_o54qx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qg46"]
-size = Vector2(128, 129)
+size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_widou"]
-radius = 600.0
+radius = 400.0
 
 [node name="BallistaTower" type="RigidBody2D" unique_id=1845065025]
 collision_mask = 2
@@ -20,22 +20,24 @@ script = ExtResource("1_widou")
 
 [node name="Tower" type="Sprite2D" parent="." unique_id=1388674562]
 z_index = 1
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_0qg46")
 
 [node name="Foundation" type="Sprite2D" parent="." unique_id=1267464107]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_widou")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1205763591]
-radius = 96.77
-vertices = PackedVector2Array(-66, -71, -66, 67, 67, 67, 68, -72)
+radius = 50.0
+vertices = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004457636]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0qg46")
 
 [node name="AttackRange" type="Area2D" parent="." unique_id=2112405781]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1239513689]
+position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_widou")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=313998838]
