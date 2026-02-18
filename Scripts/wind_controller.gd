@@ -8,6 +8,7 @@ func global_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
 		target.parent_body.apply_force(Vector2(direction.x * wind_force, direction.y * wind_force))
+		# Slow enemies temp. when hitting them with wind?
 
 # Getting the mouse drags to know what direction to send wind.
 func _input(event: InputEvent) -> void:

@@ -1,3 +1,4 @@
 class_name TowerBase
-extends Node
+extends RigidBody2D
+
 

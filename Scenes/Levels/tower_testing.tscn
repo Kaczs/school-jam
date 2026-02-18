@@ -32,7 +32,7 @@ position = Vector2(144, 437)
 linear_damp = 3.0
 
 [node name="Box4" parent="." unique_id=1615796132 instance=ExtResource("4_hdrtn")]
-position = Vector2(929, 777)
+position = Vector2(565, 447)
 
 [node name="BallistaTower" parent="." unique_id=409593298 instance=ExtResource("5_t3813")]
-position = Vector2(800, 372)
+position = Vector2(1237, 512)
