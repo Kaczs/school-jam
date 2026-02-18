@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d4m7rbp05e81j"]
 
+[ext_resource type="PackedScene" uid="uid://e6q06jshe80m" path="res://Scenes/Settings/key_binds.tscn" id="2_7r7q3"]
 [ext_resource type="PackedScene" uid="uid://dlveotugasnjn" path="res://Scenes/Settings/audio.tscn" id="2_e2gnx"]
 
 [node name="Settings" type="TabContainer" unique_id=1794996779]
@@ -13,3 +14,8 @@ current_tab = 0
 [node name="Audio" parent="." unique_id=1076582695 instance=ExtResource("2_e2gnx")]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="KeyBinds" parent="." unique_id=1967009364 instance=ExtResource("2_7r7q3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

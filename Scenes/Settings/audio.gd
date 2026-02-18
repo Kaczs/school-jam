@@ -22,8 +22,8 @@ func _ready() -> void:
 		slider.value_changed.connect(func(value): print(AudioServer.get_bus_volume_db(bus_index)))
 		slider.custom_minimum_size = Vector2(400,20)
 		box.add_child(slider)
-		var button:Button = Button.new()
-		button.text = str("Mute ", bus_name)
-		button.pressed.connect(func(): AudioServer.set_bus_mute(bus_index,not AudioServer.is_bus_mute(bus_index)))
+		var button:Label = Label.new()
+		button.text = str(bus_name)
+		#button.pressed.connect(func(): AudioServer.set_bus_mute(bus_index,not AudioServer.is_bus_mute(bus_index)))
 		box.add_child(button)
 	
