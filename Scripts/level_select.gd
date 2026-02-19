@@ -1,5 +1,8 @@
 extends CenterContainer
+
 @onready var button_container = %VBoxContainer
+
+var button_theme:Theme =  preload("res://Assets/Resources/Button.tres")
 
 func _ready() -> void:
 	var unlocked_levels:Array = LevelManager.unlocked_levels
@@ -11,4 +14,6 @@ func _ready() -> void:
 		button_lable = button_lable.replace(".tscn", "")
 		button_lable = button_lable.capitalize()
 		button.set_text(button_lable)
+		button.theme = button_theme
+		button.add_theme_font_size_override("font_size",64)
 		button_container.add_child(button)

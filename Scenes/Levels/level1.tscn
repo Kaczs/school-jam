@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://b8bqcouefk1rw" path="res://Assets/Resources/wall_tileset.tres" id="1_hkfpk"]
 [ext_resource type="Script" uid="uid://cvqqmq04h5mxq" path="res://Scripts/level_starter.gd" id="1_xe7un"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="3_c0r4e"]
-[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="4_m0h5h"]
+[ext_resource type="Script" path="res://Scripts/spawn_entry.gd" id="4_m0h5h"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="5_20uw2"]
 [ext_resource type="SpriteFrames" uid="uid://brjodx7c5pirw" path="res://Assets/Resources/bottle_sprite_frames.tres" id="5_xe7un"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="6_m0h5h"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://bs4o6du5c6aan" path="res://Scripts/Towers/ballista_tower.gd" id="9_4f2fw"]
 [ext_resource type="Texture2D" uid="uid://ciigq5hsq875v" path="res://Assets/Sprites/BallistaAttackTower.png" id="10_8r8ce"]
 [ext_resource type="Texture2D" uid="uid://pxbgjk60ypid" path="res://Assets/Sprites/TowerBase.png" id="11_nqasx"]
-[ext_resource type="Script" uid="uid://chnoityef8rxk" path="res://Scripts/goal.gd" id="11_v3vqe"]
 [ext_resource type="PackedScene" uid="uid://bapnr406381qq" path="res://Scenes/tutorial_1_collider.tscn" id="12_8r8ce"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="12_ryjqc"]
 
@@ -99,7 +98,6 @@ to_spawn = Array[ExtResource("4_m0h5h")]([SubResource("Resource_xqoth"), SubReso
 
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("6_m0h5h")]
 position = Vector2(1842, 952)
-script = ExtResource("11_v3vqe")
 
 [node name="BallistaTower" type="RigidBody2D" parent="." unique_id=1845065025 groups=["tutorial_tower"]]
 position = Vector2(1139, 460)

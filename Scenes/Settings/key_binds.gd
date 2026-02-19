@@ -24,4 +24,5 @@ func _ready() -> void:
 			button.action = action
 			button.input_event = event
 			button.mother = self
+			button.theme = load("res://Button.tres")
 			key_binding.find_child("HBoxButtonContainer",true).add_child(button)

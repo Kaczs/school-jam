@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://br1xs5td3kolq"]
 
+[ext_resource type="Theme" uid="uid://bfkbh31dwgcpo" path="res://Assets/Resources/Settings.tres" id="1_20fu6"]
+
 [node name="Action" type="Control" unique_id=13723114]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 3
@@ -20,6 +22,7 @@ theme_override_constants/margin_top = 10
 [node name="InputMapDisplay" type="Panel" parent="MarginContainer" unique_id=709315049]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
+theme = ExtResource("1_20fu6")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/InputMapDisplay" unique_id=498901672]
 layout_mode = 1
