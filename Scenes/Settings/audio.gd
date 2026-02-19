@@ -4,6 +4,8 @@ extends Control
 
 var display_audio_dus:Array = [
 	"Master",
+	"SFX",
+	"Music",
 	
 ]
 
