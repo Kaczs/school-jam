@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://hvkuvt05v2x4"]
 
 [ext_resource type="Script" uid="uid://d3d2hk67lu7h4" path="res://Scripts/main.gd" id="1_gfqty"]
-[ext_resource type="Theme" uid="uid://48gtr3xh7mky" path="res://Assets/Resources/Button.tres" id="2_1j64x"]
+[ext_resource type="Theme" uid="uid://16cxf3mnxh58" path="res://Assets/Resources/Button.tres" id="2_1j64x"]
 [ext_resource type="TileSet" uid="uid://dv2ek4xnnct6f" path="res://Assets/Resources/ground_tileset.tres" id="2_2r60g"]
 [ext_resource type="PackedScene" uid="uid://d4m7rbp05e81j" path="res://Scenes/Settings/settings_menu.tscn" id="2_jx6g1"]
 [ext_resource type="Script" uid="uid://blbbq7kj04auj" path="res://Scripts/level_select.gd" id="3_lweib"]
-[ext_resource type="Theme" uid="uid://bfkbh31dwgcpo" path="res://Assets/Resources/Settings.tres" id="5_gj3c8"]
+[ext_resource type="Theme" path="res://Assets/Resources/Settings.tres" id="5_gj3c8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj3c8"]
 bg_color = Color(0.39545357, 0.22252202, 0.025383146, 0.69411767)
