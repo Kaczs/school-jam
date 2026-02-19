@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6maw1fqb1i18"]
 
-[ext_resource type="Script" uid="uid://bkib72jrndgdk" path="res://Settings/event_rebind_button.gd" id="1_mx2cg"]
+[ext_resource type="Script" uid="uid://bkib72jrndgdk" path="res://Scenes/Settings/event_rebind_button.gd" id="1_mx2cg"]
+[ext_resource type="Theme" uid="uid://48gtr3xh7mky" path="res://Assets/Resources/Button.tres" id="1_ocxa6"]
 
 [node name="EventRebindButton" type="Button" unique_id=474548813]
 anchors_preset = 8
@@ -17,4 +18,5 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 1
+theme = ExtResource("1_ocxa6")
 script = ExtResource("1_mx2cg")

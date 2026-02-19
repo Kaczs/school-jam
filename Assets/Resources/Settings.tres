@@ -1,0 +1,45 @@
+[gd_resource type="Theme" format=3 uid="uid://bfkbh31dwgcpo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_geibs"]
+bg_color = Color(0.5882353, 0.41568628, 0, 0.5882353)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ap32"]
+bg_color = Color(0.7137255, 0.54901963, 0.21568628, 0.5882353)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtuwp"]
+bg_color = Color(0.6509804, 0.49803922, 0.1882353, 0.5882353)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aml0r"]
+bg_color = Color(0.7137255, 0.54901963, 0.21568628, 0.5882353)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uruwr"]
+bg_color = Color(0.5272204, 0.40188593, 0.14000818, 0.5882353)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxFlat_geibs")
+TabContainer/constants/tab_separation = 2
+TabContainer/font_sizes/font_size = 32
+TabContainer/styles/panel = SubResource("StyleBoxFlat_3ap32")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_mtuwp")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_aml0r")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_uruwr")

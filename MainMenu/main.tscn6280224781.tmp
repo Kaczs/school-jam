@@ -8,7 +8,7 @@
 [ext_resource type="Theme" uid="uid://bfkbh31dwgcpo" path="res://Assets/Resources/Settings.tres" id="5_gj3c8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj3c8"]
-bg_color = Color(0.39545357, 0.22252202, 0.025383146, 0.69411767)
+bg_color = Color(0.5383505, 0.36047485, 0.015018238, 0.46666667)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
