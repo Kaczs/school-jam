@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://mbkdc11c52wk"]
+
+[ext_resource type="Script" uid="uid://bs4o6du5c6aan" path="res://Scripts/Towers/ballista_tower.gd" id="1_maylv"]
+[ext_resource type="PackedScene" uid="uid://bs3sw1ukvlykm" path="res://Scenes/artillery_projectile.tscn" id="2_6rj3l"]
+[ext_resource type="Texture2D" uid="uid://bp3tyxcw6cmi5" path="res://Assets/Sprites/BombAttackTower.png" id="2_kl1ka"]
+[ext_resource type="Texture2D" uid="uid://pxbgjk60ypid" path="res://Assets/Sprites/TowerBase.png" id="3_6rj3l"]
+[ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="4_ebv1s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qg46"]
+size = Vector2(60, 60)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_widou"]
+radius = 700.0
+
+[node name="ArtilleryTower" type="RigidBody2D" unique_id=1845065025]
+mass = 5.0
+lock_rotation = true
+linear_damp = 1.0
+script = ExtResource("1_maylv")
+projectile = ExtResource("2_6rj3l")
+needs_lineofsight = false
+
+[node name="Tower" type="Sprite2D" parent="." unique_id=1388674562]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_kl1ka")
+
+[node name="Foundation" type="Sprite2D" parent="." unique_id=1267464107]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_6rj3l")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1205763591]
+radius = 40.0
+vertices = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+affect_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004457636]
+shape = SubResource("RectangleShape2D_0qg46")
+
+[node name="AttackRange" type="Area2D" parent="." unique_id=2112405781]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1239513689]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_widou")
+
+[node name="Cooldown" type="Timer" parent="." unique_id=313998838]
+wait_time = 2.5
+
+[node name="WindComponent" parent="." unique_id=1070236565 instance=ExtResource("4_ebv1s")]
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

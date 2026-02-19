@@ -3,7 +3,8 @@ extends TowerBase
 var targets:Array[RigidBody2D]
 @onready var turret:Sprite2D = $Tower
 @onready var cooldown_timer:Timer = $Cooldown
-var projectile = preload("res://Scenes/projectile.tscn")
+@export var projectile = preload("res://Scenes/projectile.tscn")
+@export var needs_lineofsight := true
 
 func _process(_delta):
 	if targets.is_empty() == false:
@@ -13,7 +14,12 @@ func _process(_delta):
 		# Start the timer and spawn an initial shot
 		if cooldown_timer.time_left <= 0:
 			cooldown_timer.start()
-			if check_line_of_sight():
+			if needs_lineofsight:
+				if check_line_of_sight():
+					print("Shooting")
+					spawn_projectile()
+			else:
+				print("Shooting")
 				spawn_projectile()
 				
 
@@ -37,7 +43,10 @@ func spawn_projectile():
 func _on_cooldown_timeout() -> void:
 	# Every timeout 
 	if targets.is_empty() == false:
-		if check_line_of_sight():
+		if needs_lineofsight:
+			if check_line_of_sight():
+				spawn_projectile()
+		else:
 			spawn_projectile()
 
 ## Returns true if there's a unobstructed view to the target

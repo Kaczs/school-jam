@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bs3sw1ukvlykm"]
+
+[ext_resource type="Script" uid="uid://tdk4so4entgr" path="res://Scenes/artillery_projectile.gd" id="1_yn4mh"]
+[ext_resource type="Texture2D" uid="uid://g3ntafeflw0k" path="res://Assets/Sprites/BombAttackProjectile-Sheet.png" id="2_yn4mh"]
+[ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="3_yn4mh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxytx"]
+atlas = ExtResource("2_yn4mh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i538"]
+atlas = ExtResource("2_yn4mh")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re0nn"]
+atlas = ExtResource("2_yn4mh")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16l77"]
+atlas = ExtResource("2_yn4mh")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkro0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxytx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i538")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re0nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16l77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4467"]
+radius = 28.01785
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yn4mh"]
+radius = 130.0
+
+[sub_resource type="Gradient" id="Gradient_yn4mh"]
+offsets = PackedFloat32Array(0.010443864, 1)
+colors = PackedColorArray(1, 0.95686275, 0.10980392, 1, 1, 0.6745098, 0.10980392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nxytx"]
+gradient = SubResource("Gradient_yn4mh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yn4mh"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 30.0
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_nxytx")
+
+[node name="ArtilleryProjectile" type="RigidBody2D" unique_id=2076197184]
+collision_layer = 0
+collision_mask = 2
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 1.0
+script = ExtResource("1_yn4mh")
+speed = 500.0
+damage = 75
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=74732510]
+position = Vector2(0, -6)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_mkro0")
+speed_scale = 1.5
+
+[node name="WindComponent" parent="." unique_id=1070236565 instance=ExtResource("3_yn4mh")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=627920039]
+shape = SubResource("CircleShape2D_d4467")
+
+[node name="Timer" type="Timer" parent="." unique_id=1435214433]
+wait_time = 2.5
+one_shot = true
+
+[node name="ExpolsionArea" type="Area2D" parent="." unique_id=1043717183]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExpolsionArea" unique_id=1448367228]
+shape = SubResource("CircleShape2D_yn4mh")
+debug_color = Color(0.9882353, 0, 0, 0.41960785)
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="." unique_id=1245381846]
+emitting = false
+amount = 150
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_yn4mh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

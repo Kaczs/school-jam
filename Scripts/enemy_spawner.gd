@@ -40,7 +40,7 @@ func check_for_blocked_spawns():
 func _process(delta):
 	if spawns_complete == true:
 		if enemy_list.is_empty() == true:
-			EventBus.all_enemies_dead.emit()
+			EventBus.all_enemies_dead.emit(self)
 			spawns_complete = false
 
 func remove_from_list(enemy):
