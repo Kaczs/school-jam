@@ -5,6 +5,8 @@ signal disable_key_rebinding(bool:bool)
 var rebindable_actions:Dictionary = {
 	#name of action in project settings : name you want to be displayed to the user, 
 	#"crouch_action":"Crouch"
+	"global_wind" : "Global Wind",
+	"local_wind": "Local Wind"
 }
 
 

@@ -7,7 +7,7 @@ extends Control
 func _on_play_pressed() -> void:
 	main_menu.visible = false
 	level_select.visible = true
-	
+
 
 func _on_settings_pressed() -> void:
 	settings.visible = not settings.visible
