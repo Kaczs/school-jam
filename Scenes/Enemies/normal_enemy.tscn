@@ -6,9 +6,10 @@
 [ext_resource type="Script" uid="uid://dlnn6cuk6ygi6" path="res://Scripts/health_component.gd" id="4_mtu75"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j5cq"]
-radius = 22.022715
+radius = 25.019993
 
 [node name="NormalEnemy" type="RigidBody2D" unique_id=924509886]
+collision_layer = 3
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp_mode = 1
