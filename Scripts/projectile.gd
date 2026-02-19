@@ -1,7 +1,7 @@
 class_name Projectile 
 extends Node2D
 @export var speed:float = 100
-@export var damage = 50
+@export var damage = 25
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
 var target:RigidBody2D
 var health:HealthComponent
@@ -28,5 +28,5 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 	print("Target hit")
 	if body == target:
 		if health != null:
-			health.take_damage(50)
+			health.take_damage(damage)
 		queue_free()

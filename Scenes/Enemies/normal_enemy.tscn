@@ -35,6 +35,6 @@ visible = false
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1131251283]
 script = ExtResource("4_mtu75")
-max_health = 100
+max_health = 75
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

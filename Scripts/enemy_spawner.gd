@@ -1,4 +1,4 @@
-extends Node2D
+class_name EnemySpawner extends Node2D
 @export var to_spawn:Array[SpawnEntry]
 
 @onready var spawn_timer:Timer = $SpawnTimer

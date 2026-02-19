@@ -6,23 +6,35 @@
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="3_c0r4e"]
 [ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="4_m0h5h"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="5_20uw2"]
+[ext_resource type="SpriteFrames" uid="uid://brjodx7c5pirw" path="res://Assets/Resources/bottle_sprite_frames.tres" id="5_xe7un"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="6_m0h5h"]
+[ext_resource type="Script" uid="uid://ckq4offqa3gw8" path="res://Scenes/Levels/wind_bottle.gd" id="6_v3vqe"]
 [ext_resource type="TileSet" uid="uid://dv2ek4xnnct6f" path="res://Assets/Resources/ground_tileset.tres" id="7_20uw2"]
+[ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="8_i36j2"]
 [ext_resource type="Script" uid="uid://bs4o6du5c6aan" path="res://Scripts/Towers/ballista_tower.gd" id="9_4f2fw"]
 [ext_resource type="Texture2D" uid="uid://ciigq5hsq875v" path="res://Assets/Sprites/BallistaAttackTower.png" id="10_8r8ce"]
 [ext_resource type="Texture2D" uid="uid://pxbgjk60ypid" path="res://Assets/Sprites/TowerBase.png" id="11_nqasx"]
+[ext_resource type="PackedScene" uid="uid://bapnr406381qq" path="res://Scenes/tutorial_1_collider.tscn" id="12_8r8ce"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="12_ryjqc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7u4ml"]
-vertices = PackedVector2Array(26, 1117.9375, 26, 1105.1875, 154, 1106.2031, 1896, 1117.0313, 282, 1106.2031, 154, 1105.1875, 282, 1105.1875, 410, 1106.2031, 410, 1105.1875, 538, 1106.2031, 538, 1105.1875, 666, 1106.2031, 666, 1105.1875, 794, 1106.2031, 794, 1105.1875, 922, 1106.2031, 922, 1105.1875, 1050, 1106.2031, 1050, 1105.1875, 1178, 1106.2031, 1178, 1105.1875, 1306, 1106.2031, 1306, 1105.1875, 1434, 1106.2031, 1434, 1105.1875, 1562, 1106.2031, 1562, 1105.1875, 1690, 1106.2031, 1690, 1105.1875, 1818, 1106.2031, 1896, 1105.7969, 1818, 1105.1875, 1319.7969, 658, 1320.7969, 658, 1320.1563, 671.6094, 1256, 670.60156, 1050, 722.2031, 1050, 721.1875, 1063.6094, 721.8281, 1062.6016, 786, 1064.7969, 786, 1064.1563, 799.6094, 1000, 798.60156, 1306, -42.609375, 1319.5469, -42.546875, 1318.6016, 18, 1306, 18, 922, 722.2031, 922, 721.1875, 1320.7969, 18, 1319.7969, 146, 26, 992, 1320.7969, 146, 1319.7969, 274, 744, 608, 1320.7969, 274, 1319.7969, 402, 1178, 608, 1320.7969, 402, 1319.7969, 530, 1178, 672.1875, 1320.7969, 530, 1256, 672.7969, 1000, 800.7969, 872, 799.7969, 744, 720.8125, 872, 800.7969, 744, 799.7969, 1178, 914, 1178, 786, 1434, 786, 1896, 992, 1434, 18, 1896, 18, 26, 18, 744, 914)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(2, 5, 4), PackedInt32Array(4, 6, 7), PackedInt32Array(3, 4, 7), PackedInt32Array(7, 8, 9, 3), PackedInt32Array(9, 10, 11, 3), PackedInt32Array(11, 12, 13, 3), PackedInt32Array(13, 14, 15, 3), PackedInt32Array(15, 16, 17, 3), PackedInt32Array(17, 18, 19, 3), PackedInt32Array(19, 20, 21, 3), PackedInt32Array(21, 22, 23, 3), PackedInt32Array(23, 24, 25, 3), PackedInt32Array(25, 26, 27, 3), PackedInt32Array(27, 28, 29, 3), PackedInt32Array(30, 3, 29, 31), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(43, 44, 45, 46), PackedInt32Array(42, 47, 48, 36, 39), PackedInt32Array(45, 49, 50), PackedInt32Array(51, 50, 52, 53, 54), PackedInt32Array(54, 53, 55, 56, 57), PackedInt32Array(57, 56, 58, 59, 35, 60), PackedInt32Array(59, 61, 32, 35), PackedInt32Array(35, 62, 60), PackedInt32Array(47, 42, 63, 64, 65), PackedInt32Array(64, 66, 67, 65), PackedInt32Array(68, 69, 70, 71), PackedInt32Array(70, 72, 73, 71), PackedInt32Array(51, 74, 46, 50), PackedInt32Array(46, 45, 50), PackedInt32Array(51, 54, 65), PackedInt32Array(51, 65, 67), PackedInt32Array(51, 67, 75), PackedInt32Array(71, 51, 75, 68)])
+vertices = PackedVector2Array(26, 1117.9375, 26, 1105.1875, 154, 1106.2031, 1896, 1117.0313, 282, 1106.2031, 154, 1105.1875, 282, 1105.1875, 410, 1106.2031, 410, 1105.1875, 538, 1106.2031, 538, 1105.1875, 666, 1106.2031, 666, 1105.1875, 794, 1106.2031, 794, 1105.1875, 922, 1106.2031, 922, 1105.1875, 1050, 1106.2031, 1050, 1105.1875, 1178, 1106.2031, 1178, 1105.1875, 1306, 1106.2031, 1306, 1105.1875, 1434, 1106.2031, 1434, 1105.1875, 1562, 1106.2031, 1562, 1105.1875, 1690, 1106.2031, 1690, 1105.1875, 1818, 1106.2031, 1896, 1105.7969, 1818, 1105.1875, 1319.7969, 274, 1320.7969, 274, 1320.1563, 287.60938, 1256, 286.60156, 1306, 594.2031, 1306, 593.1875, 1319.6094, 593.8281, 1318.6016, 658, 1306, -42.609375, 1319.5469, -42.546875, 1318.6016, 18, 1306, 18, 1050, 594.2031, 1050, 593.1875, 1178, 594.2031, 1178, 593.1875, 1320.7969, 18, 1319.7969, 146, 1320.7969, 146, 1128, 287.79688, 1256, 288.79688, 1128, 288.79688, 1000, 287.79688, 1000, 288.79688, 872, 287.79688, 872, 402, 1320.7969, 402, 1320.1875, 480, 872, 480, 1434, 658, 1434, 18, 1896, 18, 1896, 992, 26, 992, 872, 592.8125, 26, 18)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(2, 5, 4), PackedInt32Array(4, 6, 7), PackedInt32Array(3, 4, 7), PackedInt32Array(7, 8, 9, 3), PackedInt32Array(9, 10, 11, 3), PackedInt32Array(11, 12, 13, 3), PackedInt32Array(13, 14, 15, 3), PackedInt32Array(15, 16, 17, 3), PackedInt32Array(17, 18, 19, 3), PackedInt32Array(19, 20, 21, 3), PackedInt32Array(21, 22, 23, 3), PackedInt32Array(23, 24, 25, 3), PackedInt32Array(25, 26, 27, 3), PackedInt32Array(27, 28, 29, 3), PackedInt32Array(30, 3, 29, 31), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(40, 41, 42, 43), PackedInt32Array(44, 45, 46), PackedInt32Array(46, 47, 36), PackedInt32Array(42, 48, 49), PackedInt32Array(49, 50, 32, 35, 51), PackedInt32Array(35, 52, 51), PackedInt32Array(51, 53, 54), PackedInt32Array(54, 55, 56), PackedInt32Array(57, 58, 59, 60), PackedInt32Array(61, 62, 63, 64), PackedInt32Array(61, 64, 65, 39), PackedInt32Array(43, 42, 49, 51, 54), PackedInt32Array(36, 39, 65, 46), PackedInt32Array(44, 46, 65), PackedInt32Array(66, 44, 65), PackedInt32Array(66, 65, 67, 60), PackedInt32Array(57, 60, 67), PackedInt32Array(56, 57, 67), PackedInt32Array(56, 67, 43, 54)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1973, -65, 1984, 1142, -64, 1143, -64, -73)])
 agent_radius = 25.0
 
 [sub_resource type="Resource" id="Resource_xqoth"]
 script = ExtResource("4_m0h5h")
 scene = ExtResource("5_20uw2")
-count = 10
+count = 6
+spawn_rate = 2.0
+metadata/_custom_type_script = "uid://bvjbq0juon6qg"
+
+[sub_resource type="Resource" id="Resource_nqasx"]
+script = ExtResource("4_m0h5h")
+scene = ExtResource("5_20uw2")
+count = 3
+spawn_rate = 1.5
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qg46"]
@@ -46,12 +58,12 @@ navigation_polygon = SubResource("NavigationPolygon_7u4ml")
 
 [node name="WallLayer" type="TileMapLayer" parent="NavigationRegion2D" unique_id=668879949]
 position = Vector2(1, -7)
-tile_map_data = PackedByteArray("AAAIAAYABQACAAAAADAHAAYABQADAAAAADAGAAYABQADAAAAADAIAAUABQACAAAAAFAHAAUABQADAAAAAAAGAAUABQADAAAAAAD/////BQABAAAAADAAAP//BQABAAAAADABAP//BQABAAAAADACAP//BQABAAAAADADAP//BQABAAAAADAEAP//BQABAAAAADAFAP//BQABAAAAADAGAP//BQABAAAAADAHAP//BQABAAAAADAIAP//BQABAAAAADAJAP//BQABAAAAADAKAP//BQACAAAAAFALAP//BQABAAAAADAMAP//BQABAAAAADANAP//BQABAAAAADAOAP//BQABAAAAADAPAP//BQABAAAAADAPAAAABQABAAAAAGAPAAEABQABAAAAAGAPAAIABQABAAAAAGAPAAMABQABAAAAAGAPAAQABQABAAAAAGAPAAUABQABAAAAAGAPAAYABQABAAAAAGAPAAcABQABAAAAAGAPAAgABQABAAAAAGD//wgABQABAAAAAFAAAAgABQADAAAAAAABAAgABQADAAAAAAACAAgABQADAAAAAAADAAgABQADAAAAAAAEAAgABQADAAAAAAAFAAgABQADAAAAAAAGAAgABQADAAAAAAAHAAgABQADAAAAAAAIAAgABQADAAAAAAAJAAgABQADAAAAAAAKAAgABQADAAAAAAALAAgABQADAAAAAAAMAAgABQADAAAAAAANAAgABQADAAAAAAAOAAgABQADAAAAAAD//wMABQABAAAAAFD//wQABQABAAAAAFD//wUABQABAAAAAFD//wYABQABAAAAAFD//wcABQABAAAAAFD//wAABQABAAAAAFD//wEABQABAAAAAFD//wIABQABAAAAAFAKAAAABQADAAAAAFAKAAEABQADAAAAAFAKAAIABQADAAAAAFAKAAMABQADAAAAAFAKAAQABQADAAAAAFAKAAUABQACAAAAADAJAAUABQADAAAAADA=")
+tile_map_data = PackedByteArray("AAD/////BQABAAAAADAAAP//BQABAAAAADABAP//BQABAAAAADACAP//BQABAAAAADADAP//BQABAAAAADAEAP//BQABAAAAADAFAP//BQABAAAAADAGAP//BQABAAAAADAHAP//BQABAAAAADAIAP//BQABAAAAADAJAP//BQABAAAAADAKAP//BQACAAAAAFALAP//BQABAAAAADAMAP//BQABAAAAADANAP//BQABAAAAADAOAP//BQABAAAAADAPAP//BQABAAAAADAPAAAABQABAAAAAGAPAAEABQABAAAAAGAPAAIABQABAAAAAGAPAAMABQABAAAAAGAPAAQABQABAAAAAGAPAAUABQABAAAAAGAPAAYABQABAAAAAGAPAAcABQABAAAAAGAPAAgABQABAAAAAGD//wgABQABAAAAAFAAAAgABQADAAAAAAABAAgABQADAAAAAAACAAgABQADAAAAAAADAAgABQADAAAAAAAEAAgABQADAAAAAAAFAAgABQADAAAAAAAGAAgABQADAAAAAAAHAAgABQADAAAAAAAIAAgABQADAAAAAAAJAAgABQADAAAAAAAKAAgABQADAAAAAAALAAgABQADAAAAAAAMAAgABQADAAAAAAANAAgABQADAAAAAAAOAAgABQADAAAAAAD//wMABQABAAAAAFD//wQABQABAAAAAFD//wUABQABAAAAAFD//wYABQABAAAAAFD//wcABQABAAAAAFD//wAABQABAAAAAFD//wEABQABAAAAAFD//wIABQABAAAAAFAKAAAABQADAAAAAFAKAAEABQADAAAAAFAKAAIABQACAAAAADAJAAIABQADAAAAADAIAAIABQADAAAAADAHAAIABQADAAAAADAKAAQABQACAAAAAFAHAAQABQADAAAAAAAIAAQABQADAAAAAAAJAAQABQADAAAAAAAKAAMABQADAAAAAFA=")
 tile_set = ExtResource("1_hkfpk")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=731908525]
+[node name="UI" type="CanvasLayer" parent="." unique_id=731908525]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1571363831]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=1571363831]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -61,25 +73,48 @@ offset_right = 130.0
 offset_bottom = 134.0
 grow_horizontal = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=947628330]
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer" unique_id=947628330]
 modulate = Color(0, 1, 1, 1)
 layout_mode = 2
 texture = ExtResource("2_16p8j")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=150033113]
+[node name="TextureRect2" type="TextureRect" parent="UI/HBoxContainer" unique_id=150033113]
 modulate = Color(1, 0.21176471, 0.3137255, 1)
 layout_mode = 2
 texture = ExtResource("2_16p8j")
 
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI" unique_id=104346989]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_top = 75.0
+offset_right = -21.0
+offset_bottom = 115.0
+grow_horizontal = 0
+
+[node name="WindBottle" type="AnimatedSprite2D" parent="UI/AspectRatioContainer" unique_id=2086267264]
+sprite_frames = ExtResource("5_xe7un")
+animation = &"3"
+speed_scale = 2.0
+script = ExtResource("6_v3vqe")
+
+[node name="Panel" type="Panel" parent="UI/AspectRatioContainer/WindBottle" unique_id=643761343]
+show_behind_parent = true
+offset_left = -50.0
+offset_top = -70.0
+offset_right = 50.0
+offset_bottom = 80.0
+
 [node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("3_c0r4e")]
 position = Vector2(68, 79)
-to_spawn = Array[ExtResource("4_m0h5h")]([SubResource("Resource_xqoth")])
+to_spawn = Array[ExtResource("4_m0h5h")]([SubResource("Resource_xqoth"), SubResource("Resource_nqasx")])
 
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("6_m0h5h")]
 position = Vector2(1842, 952)
 
-[node name="BallistaTower" type="RigidBody2D" parent="." unique_id=1845065025]
-position = Vector2(1022, 766)
+[node name="BallistaTower" type="RigidBody2D" parent="." unique_id=1845065025 groups=["tutorial_tower"]]
+position = Vector2(1261, 460)
 mass = 5.0
 lock_rotation = true
 linear_damp = 1.0
@@ -112,16 +147,15 @@ shape = SubResource("CircleShape2D_widou")
 [node name="WindComponent" parent="BallistaTower" unique_id=1070236565 instance=ExtResource("12_ryjqc")]
 visible = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=666371383]
-offset_left = 677.0
-offset_top = 563.0
-offset_right = 1238.0
-offset_bottom = 692.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 30
-text = "Hold [Left Mouse] and drag to the left
-<--------------------"
-horizontal_alignment = 1
+[node name="Tutorial1Collider" parent="." unique_id=120829070 node_paths=PackedStringArray("tutorial_tower", "bonus_tower", "spawner") instance=ExtResource("12_8r8ce")]
+position = Vector2(743, 449)
+tutorial_tower = NodePath("../BallistaTower")
+bonus_tower = NodePath("../BallistaTower2")
+spawner = NodePath("../EnemySpawner")
+
+[node name="BallistaTower2" parent="." unique_id=438066032 instance=ExtResource("8_i36j2")]
+visible = false
+position = Vector2(1662, 262)
 
 [connection signal="body_entered" from="BallistaTower/AttackRange" to="BallistaTower" method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="BallistaTower/AttackRange" to="BallistaTower" method="_on_attack_range_body_exited"]

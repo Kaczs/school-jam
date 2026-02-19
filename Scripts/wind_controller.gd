@@ -3,10 +3,19 @@ extends Node
 @export var wind_force = 80000
 ## The radius of the circle local wind can affect
 @export var local_size:float = 600 
+## Max number of stored 'wind' uses
+@export var max_wind := 3
+@export var wind_regeneration_rate := 5.0
+var current_wind := 2
 var drag_direction = Vector2(0, 0)
 var accumulated_drag = Vector2.ZERO
 var local_wind_mode = true	
 @onready var local_wind_particles:GPUParticles2D = $LocalWindParticles
+@onready var regen_timer:Timer = $RegenTimer
+
+func _ready():
+	regen_timer.wait_time = wind_regeneration_rate
+	regen_timer.start()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("local_wind"):
@@ -22,7 +31,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			accumulated_drag += event.relative
 	# Once we release the button act on that motion
-	if Input.is_action_just_released("wind"):
+	if Input.is_action_just_released("wind") and current_wind > 0:
 		drag_direction = accumulated_drag.normalized()
 		# If they didnt actually drag their mouse, dont do anything
 		if drag_direction == Vector2(0, 0):
@@ -31,6 +40,8 @@ func _input(event: InputEvent) -> void:
 			global_wind(drag_direction)
 		else:
 			local_wind(drag_direction)
+		current_wind -= 1
+		EventBus.emit_signal("wind_changed", current_wind)
 		accumulated_drag = Vector2.ZERO
 
 ## Use wind on everything in the group
@@ -56,3 +67,11 @@ func create_local_wind_particles(direction:Vector2):
 	var process_mat:ParticleProcessMaterial = local_wind_particles.process_material
 	process_mat.direction = Vector3(direction.x, direction.y, 0.0)
 	local_wind_particles.emitting = true
+
+
+func _on_regen_timer_timeout() -> void:
+	if current_wind < max_wind:
+		current_wind += 1
+		EventBus.emit_signal("wind_changed", current_wind)
+	#Adjust sprite
+	print("Current wind: ", current_wind)

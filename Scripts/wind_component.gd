@@ -24,4 +24,3 @@ func toggle():
 
 func _on_button_pressed() -> void:
 	toggle()
-	print("Button toggled, groups are: ", get_groups())
