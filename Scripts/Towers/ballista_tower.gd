@@ -13,7 +13,8 @@ func _process(_delta):
 		# Start the timer and spawn an initial shot
 		if cooldown_timer.time_left <= 0:
 			cooldown_timer.start()
-			spawn_projectile()
+			if check_line_of_sight():
+				spawn_projectile()
 				
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
@@ -36,4 +37,21 @@ func spawn_projectile():
 func _on_cooldown_timeout() -> void:
 	# Every timeout 
 	if targets.is_empty() == false:
-		spawn_projectile()
+		if check_line_of_sight():
+			spawn_projectile()
+
+## Returns true if there's a unobstructed view to the target
+func check_line_of_sight():
+	# Make the actual ray
+	var query = PhysicsRayQueryParameters2D.create(global_position, targets[0].global_position)
+	# Exclude self
+	query.exclude = [self.get_rid(), targets[0].get_rid()]
+	# Prevent enemies (ie. the targets) from counting as blocking the shot
+	query.collision_mask = 1
+	# Does it hit something or not?
+	var result = get_world_2d().direct_space_state.intersect_ray(query)
+	if result.is_empty():
+		return true
+	else:
+		print(result)
+		return false

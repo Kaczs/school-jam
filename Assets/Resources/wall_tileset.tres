@@ -21,9 +21,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qao5n"]
-vertices = PackedVector2Array(64, -1, -64, -3, -64, -64, 64, -64)
+vertices = PackedVector2Array(64, -1, -64, -3, -32, -32, 64, -64)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, -1, -64, -3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 64, -64, 64, -1, -64, -3)])
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24xlg"]

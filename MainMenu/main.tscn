@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hvkuvt05v2x4"]
 
-[ext_resource type="Script" uid="uid://d3d2hk67lu7h4" path="res://Scripts/main.gd" id="1_gfqty"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_gfqty"]
 [ext_resource type="PackedScene" uid="uid://d4m7rbp05e81j" path="res://Scenes/Settings/settings_menu.tscn" id="2_jx6g1"]
 [ext_resource type="Script" uid="uid://blbbq7kj04auj" path="res://Scripts/level_select.gd" id="3_lweib"]
 
