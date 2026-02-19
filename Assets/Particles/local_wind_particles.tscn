@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cvynqb4f5uf8n"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aq4jw"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 300.0
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 700.0
+initial_velocity_max = 700.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 7.0
+
+[node name="LocalWindParticles" type="GPUParticles2D" unique_id=1416111748]
+emitting = false
+amount = 300
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_aq4jw")

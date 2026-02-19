@@ -5,7 +5,8 @@ extends Node
 @export var local_size:float = 600 
 var drag_direction = Vector2(0, 0)
 var accumulated_drag = Vector2.ZERO
-var local_wind_mode = true
+var local_wind_mode = true	
+@onready var local_wind_particles:GPUParticles2D = $LocalWindParticles
 
 func _process(_delta):
 	if Input.is_action_just_pressed("local_wind"):
@@ -23,9 +24,11 @@ func _input(event: InputEvent) -> void:
 	# Once we release the button act on that motion
 	if Input.is_action_just_released("wind"):
 		drag_direction = accumulated_drag.normalized()
+		# If they didnt actually drag their mouse, dont do anything
+		if drag_direction == Vector2(0, 0):
+			return
 		if local_wind_mode == false:
 			global_wind(drag_direction)
-		# if in local wind mode
 		else:
 			local_wind(drag_direction)
 		accumulated_drag = Vector2.ZERO
@@ -45,3 +48,11 @@ func local_wind(direction:Vector2):
 		if target.global_position.distance_to(get_viewport().get_mouse_position()) <= local_size:
 			#print("Target distance: ", target.global_position.distance_to(get_viewport().get_mouse_position()))
 			target.parent_body.apply_force(direction * (wind_force*1.7))
+	# We wanna create particles even if the player isnt pushing anything
+	create_local_wind_particles(direction)
+	
+func create_local_wind_particles(direction:Vector2):
+	local_wind_particles.global_position = get_viewport().get_mouse_position()
+	var process_mat:ParticleProcessMaterial = local_wind_particles.process_material
+	process_mat.direction = Vector3(direction.x, direction.y, 0.0)
+	local_wind_particles.emitting = true

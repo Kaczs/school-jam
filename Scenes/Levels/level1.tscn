@@ -38,6 +38,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 tile_set = ExtResource("7_20uw2")
 
 [node name="WindController" parent="." unique_id=1545098080 instance=ExtResource("1_7u4ml")]
+local_size = 400.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=25979891]
 position = Vector2(-1, 7)
@@ -110,6 +111,17 @@ shape = SubResource("CircleShape2D_widou")
 
 [node name="WindComponent" parent="BallistaTower" unique_id=1070236565 instance=ExtResource("12_ryjqc")]
 visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=666371383]
+offset_left = 677.0
+offset_top = 563.0
+offset_right = 1238.0
+offset_bottom = 692.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Hold [Left Mouse] and drag to the left
+<--------------------"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="BallistaTower/AttackRange" to="BallistaTower" method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="BallistaTower/AttackRange" to="BallistaTower" method="_on_attack_range_body_exited"]

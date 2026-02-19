@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bojvjttovmt8"]
 
 [ext_resource type="Script" uid="uid://cfrsw10k6762u" path="res://Scripts/wind_controller.gd" id="1_a0rca"]
+[ext_resource type="PackedScene" uid="uid://cvynqb4f5uf8n" path="res://Assets/Particles/local_wind_particles.tscn" id="2_w1irw"]
 
 [node name="WindController" type="Node2D" unique_id=1545098080]
 script = ExtResource("1_a0rca")
+
+[node name="LocalWindParticles" parent="." unique_id=1416111748 instance=ExtResource("2_w1irw")]
