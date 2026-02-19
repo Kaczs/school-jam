@@ -1,9 +1,10 @@
 extends Node
 
 @export var wind_force = 80000
+## The radius of the circle local wind can affect
+@export var local_size:float = 600 
 var drag_direction = Vector2(0, 0)
 var accumulated_drag = Vector2.ZERO
-@export var local_size:float = 600
 var local_wind_mode = true
 
 func _process(_delta):

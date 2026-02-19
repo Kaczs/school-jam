@@ -22,6 +22,8 @@ func _physics_process(delta: float) -> void:
 		var next_pos = navigation_agent.get_next_path_position()
 		var direction = (next_pos - global_position).normalized()
 		var velocity = direction * speed
+		var angle = sprite.global_position.angle_to_point(next_pos)
+		sprite.rotation = angle + PI/2
 		# need to set the navigation agent velocity so it can calculate avoidance
 		# and use that instead
 		navigation_agent.velocity = velocity 
@@ -35,8 +37,5 @@ func goal_reached():
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	# Make the sprite look where it's going
-	var angle = sprite.global_position.angle_to_point(safe_velocity.normalized())
-	sprite.rotation = angle - PI/2
 	# Apply the force to steer
 	apply_central_force(safe_velocity - linear_velocity)

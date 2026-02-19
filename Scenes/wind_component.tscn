@@ -10,6 +10,8 @@ offset_left = 36.0
 offset_top = -73.0
 offset_right = 88.0
 offset_bottom = -42.0
+theme_override_colors/font_pressed_color = Color(0.31035072, 0.00061896147, 0.82313854, 1)
+toggle_mode = true
 text = "Lock"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

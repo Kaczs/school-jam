@@ -1,7 +1,50 @@
 [gd_scene format=3 uid="uid://b8keyghswav2y"]
 
 [ext_resource type="Script" uid="uid://dgg0p6s4h2i61" path="res://Scripts/projectile.gd" id="1_yr2qt"]
-[ext_resource type="Texture2D" uid="uid://c3metklfbaugy" path="res://Assets/Sprites/StoneSmall.png" id="2_tl4hk"]
+[ext_resource type="Texture2D" uid="uid://d02abqfds3o4n" path="res://Assets/Sprites/BallistaAttackProjectile-Sheet.png" id="3_tl4hk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4467"]
+atlas = ExtResource("3_tl4hk")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1077"]
+atlas = ExtResource("3_tl4hk")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgh1o"]
+atlas = ExtResource("3_tl4hk")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu5m1"]
+atlas = ExtResource("3_tl4hk")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsyq6"]
+atlas = ExtResource("3_tl4hk")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_augfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4467")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1077")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgh1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu5m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsyq6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d4467"]
 radius = 28.284271
@@ -10,14 +53,16 @@ radius = 28.284271
 script = ExtResource("1_yr2qt")
 speed = 500.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1003098276]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=74732510]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_tl4hk")
+sprite_frames = SubResource("SpriteFrames_augfd")
+frame_progress = 0.85578716
+speed_scale = 1.5
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1930564038]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=627920039]
-position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_d4467")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

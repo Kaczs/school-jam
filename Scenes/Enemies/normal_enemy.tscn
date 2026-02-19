@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dlnn6cuk6ygi6" path="res://Scripts/health_component.gd" id="4_mtu75"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j5cq"]
-radius = 29.068884
+radius = 23.0
 
 [node name="NormalEnemy" type="RigidBody2D" unique_id=924509886]
 gravity_scale = 0.0
@@ -17,11 +17,11 @@ script = ExtResource("1_06vei")
 speed = 500
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1000397959]
-position = Vector2(0, -4)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_mtu75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1822093921]
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_4j5cq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=375047867]
