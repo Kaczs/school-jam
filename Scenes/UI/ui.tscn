@@ -18,7 +18,7 @@ layout_mode = 2
 texture = ExtResource("1_c7mb3")
 
 [node name="GlobalWindIcon" type="TextureRect" parent="HBoxContainer" unique_id=1821594572]
-modulate = Color(1, 0.21176471, 0.3137255, 1)
+modulate = Color(1, 0.21176471, 0.3137255, 0.33333334)
 layout_mode = 2
 texture = ExtResource("1_c7mb3")
 

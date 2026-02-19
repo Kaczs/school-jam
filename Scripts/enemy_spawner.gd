@@ -34,3 +34,8 @@ func check_for_blocked_spawns():
 		return true
 	else:
 		return false
+
+## This will track the last of the enemies and emit a signal when they're all dead
+## signalling the level is complete.
+func track_last_enemies():
+	pass
