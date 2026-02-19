@@ -11,6 +11,7 @@ initial_velocity_max = 700.0
 gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 7.0
+color = Color(0.99607843, 0.91764706, 0.80784315, 1)
 
 [node name="LocalWindParticles" type="GPUParticles2D" unique_id=1416111748]
 emitting = false

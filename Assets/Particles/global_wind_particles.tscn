@@ -11,6 +11,7 @@ initial_velocity_max = 700.0
 gravity = Vector3(0, 0, 0)
 scale_min = 3.0
 scale_max = 7.0
+color = Color(0.99633616, 0.91837776, 0.8082614, 1)
 
 [node name="GlobalWindParticles" type="GPUParticles2D" unique_id=1416111748]
 position = Vector2(990, 542)

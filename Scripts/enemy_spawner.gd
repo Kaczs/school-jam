@@ -1,28 +1,30 @@
 class_name EnemySpawner extends Node2D
 @export var to_spawn:Array[SpawnEntry]
-
 @onready var spawn_timer:Timer = $SpawnTimer
-signal spawns_complete
+var spawns_complete:bool = false
+var enemy_list:Array = []
 
 ## Iterate through all the entries in the to_spawn list
 ## for each entry spawn 1 then wait for the timer to complete
 ## do this until you've done one for every count, then
 ## move onto the next entry.
 func begin_spawns():
+	EventBus.connect("enemy_has_died", remove_from_list, )
 	spawn_timer.start()
 	await spawn_timer.timeout
 	for spawn in to_spawn:
 		for count in spawn.count: 
 			# Test if space is blocked if so move the spawn point up and to the left a bit
 			# this is prevent the player from blocking the spawn with a crate.
-			if check_for_blocked_spawns():
-				position += Vector2(50, -50)
+			#if check_for_blocked_spawns():
+			#	position += Vector2(50, -50)
 			var new_enemy = spawn.scene.instantiate()
 			add_child(new_enemy)
+			enemy_list.append(new_enemy)
 			spawn_timer.wait_time = spawn.spawn_rate
 			spawn_timer.start()
 			await spawn_timer.timeout
-	spawns_complete.emit()
+	spawns_complete = true
 
 func check_for_blocked_spawns():
 	var query = PhysicsPointQueryParameters2D.new()
@@ -34,3 +36,14 @@ func check_for_blocked_spawns():
 		return true
 	else:
 		return false
+
+func _process(delta):
+	if spawns_complete == true:
+		if enemy_list.is_empty() == true:
+			EventBus.all_enemies_dead.emit()
+			spawns_complete = false
+
+func remove_from_list(enemy):
+	enemy_list.erase(enemy)
+	print(enemy_list)
+	

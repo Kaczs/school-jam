@@ -4,7 +4,6 @@
 [ext_resource type="TileSet" uid="uid://dv2ek4xnnct6f" path="res://Assets/Resources/ground_tileset.tres" id="1_t27xo"]
 [ext_resource type="PackedScene" uid="uid://bojvjttovmt8" path="res://Scenes/wind_controller.tscn" id="2_yxf76"]
 [ext_resource type="TileSet" uid="uid://b8bqcouefk1rw" path="res://Assets/Resources/wall_tileset.tres" id="3_ia1lp"]
-[ext_resource type="Texture2D" uid="uid://bvn10qkkhydl2" path="res://Assets/Sprites/icon.svg" id="4_5buja"]
 [ext_resource type="Script" uid="uid://dvpqim5omfji7" path="res://Scripts/navigation_region_2d.gd" id="4_eopvx"]
 [ext_resource type="PackedScene" uid="uid://b25xtwhs2csqi" path="res://Scenes/movable_box.tscn" id="5_uqiic"]
 [ext_resource type="SpriteFrames" uid="uid://brjodx7c5pirw" path="res://Assets/Resources/bottle_sprite_frames.tres" id="5_wyygt"]
@@ -32,21 +31,22 @@ metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 [sub_resource type="Resource" id="Resource_nqasx"]
 script = ExtResource("8_jd2hh")
 scene = ExtResource("13_t27xo")
-spawn_rate = 2.0
+count = 3
+spawn_rate = 6.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
 [sub_resource type="Resource" id="Resource_t27xo"]
 script = ExtResource("8_jd2hh")
 scene = ExtResource("9_jip10")
-count = 5
+count = 3
 spawn_rate = 1.5
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
 [sub_resource type="Resource" id="Resource_yxf76"]
 script = ExtResource("8_jd2hh")
 scene = ExtResource("13_t27xo")
-count = 3
-spawn_rate = 6.0
+count = 2
+spawn_rate = 5.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
 [node name="level2" type="Node2D" unique_id=179991829]
@@ -71,6 +71,7 @@ tile_set = ExtResource("3_ia1lp")
 
 [node name="RebakeTimer" type="Timer" parent="NavigationRegion2D" unique_id=344249157]
 wait_time = 3.0
+one_shot = true
 
 [node name="MovableBox2" parent="NavigationRegion2D" unique_id=1673245718 instance=ExtResource("5_uqiic")]
 position = Vector2(1506, 583)
@@ -82,20 +83,6 @@ position = Vector2(1063, 285)
 position = Vector2(1068, 946)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1466918898]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=1956748606]
-offset_right = 260.0
-offset_bottom = 128.0
-
-[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer" unique_id=991342424]
-modulate = Color(0, 1, 1, 1)
-layout_mode = 2
-texture = ExtResource("4_5buja")
-
-[node name="TextureRect2" type="TextureRect" parent="UI/HBoxContainer" unique_id=1904471071]
-modulate = Color(1, 0.21176471, 0.3137255, 1)
-layout_mode = 2
-texture = ExtResource("4_5buja")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI" unique_id=379839042]
 anchors_preset = 1
