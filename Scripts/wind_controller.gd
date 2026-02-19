@@ -72,6 +72,5 @@ func create_local_wind_particles(direction:Vector2):
 func _on_regen_timer_timeout() -> void:
 	if current_wind < max_wind:
 		current_wind += 1
+		# Primarily for the UI element showing wind
 		EventBus.emit_signal("wind_changed", current_wind)
-	#Adjust sprite
-	print("Current wind: ", current_wind)
