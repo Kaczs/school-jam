@@ -15,4 +15,6 @@ var level_unlocks:Dictionary = {
 
 func level_complete(level):
 	var level_name:String = level.name.to_lower()
+	if unlocked_levels.has(level_unlocks[level_name]):
+		return
 	unlocked_levels.append(level_unlocks[level_name])
