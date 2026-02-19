@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dmcno5bitm0oc"]
 
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="1_cmgem"]
-[ext_resource type="PackedScene" path="res://Scenes/goal.tscn" id="2_4te2q"]
+[ext_resource type="Script" uid="uid://cl8kj12qr7r40" path="res://Scripts/test.gd" id="1_ovt37"]
+[ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="2_4te2q"]
 [ext_resource type="PackedScene" uid="uid://bojvjttovmt8" path="res://Scenes/wind_controller.tscn" id="3_q1p36"]
+[ext_resource type="PackedScene" uid="uid://cvyicx01sm07a" path="res://Scenes/level_menu.tscn" id="5_x0mv3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4te2q"]
 vertices = PackedVector2Array(1139.0938, 0.96875, 1144.8984, 636.6875, 779.02344, 626, 12.9609375, -1.96875, 464.96094, 633.9922, 284.9922, 630, 11.03125, 636.7422)
@@ -10,6 +12,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(1149, -9, 1155, 647, 779, 636, 465, 644, 285, 640, 1, 647, 3, -12)])
 
 [node name="Test" type="Node2D" unique_id=340832896]
+script = ExtResource("1_ovt37")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=306073937]
 position = Vector2(-1, 7)
@@ -17,7 +20,6 @@ navigation_polygon = SubResource("NavigationPolygon_4te2q")
 
 [node name="NormalEnemy" parent="." unique_id=509141931 instance=ExtResource("1_cmgem")]
 position = Vector2(78, 207)
-gravity_scale = 0.0
 linear_damp = 0.3
 
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("2_4te2q")]
@@ -25,13 +27,16 @@ position = Vector2(1038, 292)
 
 [node name="NormalEnemy2" parent="." unique_id=924509886 instance=ExtResource("1_cmgem")]
 position = Vector2(156, 414)
-gravity_scale = 0.0
 linear_damp = 0.3
 
 [node name="NormalEnemy3" parent="." unique_id=1249261680 instance=ExtResource("1_cmgem")]
 position = Vector2(93, 558)
-gravity_scale = 0.0
 linear_damp = 0.3
 
 [node name="WindController" parent="." unique_id=1545098080 instance=ExtResource("3_q1p36")]
 wind_force = 3000
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1132798308]
+
+[node name="LevelMenu" parent="CanvasLayer" unique_id=2140832043 instance=ExtResource("5_x0mv3")]
+visible = false

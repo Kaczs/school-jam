@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e6q06jshe80m"]
 
-[ext_resource type="Script" uid="uid://bhjhe0nqu2rtr" path="res://Settings/key_binds.gd" id="1_gld33"]
+[ext_resource type="Script" uid="uid://bhjhe0nqu2rtr" path="res://Scenes/Settings/key_binds.gd" id="1_gld33"]
 
 [node name="KeyBinds" type="Control" unique_id=1967009364]
 layout_mode = 3
