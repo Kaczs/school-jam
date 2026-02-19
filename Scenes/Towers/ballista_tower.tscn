@@ -30,6 +30,7 @@ texture = ExtResource("2_widou")
 radius = 40.0
 vertices = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
 affect_navigation_mesh = true
+avoidance_enabled = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004457636]
 shape = SubResource("RectangleShape2D_0qg46")

@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="8_jd2hh"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="9_jip10"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="10_1xj2d"]
+[ext_resource type="PackedScene" uid="uid://uk4xl3k6nbqj" path="res://Scenes/Enemies/heavy_enemy.tscn" id="13_t27xo"]
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="15_umcau"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ud172"]
@@ -23,8 +24,7 @@ agent_radius = 25.0
 
 [sub_resource type="Resource" id="Resource_xqoth"]
 script = ExtResource("8_jd2hh")
-scene = ExtResource("9_jip10")
-count = 6
+scene = ExtResource("13_t27xo")
 spawn_rate = 3.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 

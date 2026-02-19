@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://uk4xl3k6nbqj"]
+
+[ext_resource type="Script" uid="uid://c5ukg66rndiky" path="res://Scripts/normal_enemy.gd" id="1_pwy1a"]
+[ext_resource type="Texture2D" uid="uid://drg1dyj76vako" path="res://Assets/Sprites/BigBeetle.png" id="2_pwy1a"]
+[ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="3_lt8vd"]
+[ext_resource type="Script" uid="uid://dlnn6cuk6ygi6" path="res://Scripts/health_component.gd" id="4_olupi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kq2l"]
+radius = 40.012497
+
+[node name="HeavyEnemy" type="RigidBody2D" unique_id=1097597982]
+lock_rotation = true
+script = ExtResource("1_pwy1a")
+speed = 1000
+health = 150
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1972802617]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_pwy1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=552416136]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_5kq2l")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2013429063]
+path_desired_distance = 30.0
+avoidance_enabled = true
+radius = 50.0
+max_speed = 1000.0
+
+[node name="WindComponent" parent="." unique_id=1070236565 instance=ExtResource("3_lt8vd")]
+visible = false
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1069847000]
+script = ExtResource("4_olupi")
+max_health = 75

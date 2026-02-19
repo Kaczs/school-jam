@@ -16,8 +16,7 @@ func _ready() -> void:
 	health_component.max_health = health
 
 
-func _physics_process(delta: float) -> void:
-	
+func _physics_process(_delta: float) -> void:
 	#if !navigation_agent.is_target_reachable():
 		#push_warning(self, " is lost (target not reachable)")
 		#return
