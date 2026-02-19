@@ -6,6 +6,7 @@ extends Node2D
 func _ready():
 	EventBus.connect("all_enemies_dead", win)
 	EventBus.connect("player_lose", lose)
+	SoundManager.play_global(SoundFiles.backround_music, self ,"Music" ,-10 ,true)
 	if tutorial == false:
 		for spawner in spawners:
 			spawner.begin_spawns()

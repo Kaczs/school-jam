@@ -10,7 +10,7 @@
 [ext_resource type="SpriteFrames" uid="uid://brjodx7c5pirw" path="res://Assets/Resources/bottle_sprite_frames.tres" id="8_b2fon"]
 [ext_resource type="Script" uid="uid://ckq4offqa3gw8" path="res://Scripts/wind_bottle.gd" id="9_jydn8"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="10_pwvbg"]
-[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="11_bngq1"]
+[ext_resource type="Script" path="res://Scripts/spawn_entry.gd" id="11_bngq1"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="12_t6y87"]
 [ext_resource type="PackedScene" uid="uid://uk4xl3k6nbqj" path="res://Scenes/Enemies/heavy_enemy.tscn" id="13_keokt"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="14_cvw5d"]
