@@ -85,6 +85,7 @@ metadata/_edit_lock_ = true
 
 [node name="RebakeTimer" type="Timer" parent="NavigationRegion2D" unique_id=344249157]
 wait_time = 3.0
+one_shot = true
 
 [node name="MovableBox2" parent="NavigationRegion2D" unique_id=1673245718 instance=ExtResource("6_rcyh2")]
 position = Vector2(103, 929)

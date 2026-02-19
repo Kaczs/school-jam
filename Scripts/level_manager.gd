@@ -5,7 +5,7 @@ var unlocked_levels:Array = [preload("res://Scenes/Levels/test.tscn"), preload("
 var level_unlocks:Dictionary = {
 	"test":preload("res://Scenes/Levels/tower_testing.tscn"),
 	"level1":preload("res://Scenes/Levels/level_2.tscn"),
-	"level_2":preload("res://Scenes/Levels/level_3.tscn")
+	"level2":preload("res://Scenes/Levels/level_3.tscn")
 }
 
 
