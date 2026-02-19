@@ -4,6 +4,7 @@ class_name Enemy
 @onready var navigation_agent:NavigationAgent2D = $NavigationAgent2D
 @onready var sprite:Sprite2D = $Icon
 @export var speed := 2000
+@export var health := 75
 
 func _ready() -> void:
 	var goal = get_tree().get_nodes_in_group("Goal")
@@ -11,6 +12,8 @@ func _ready() -> void:
 		navigation_agent.target_position = goal[0].global_position
 	else:
 		push_warning(self, " could not find Goal")
+	var health_component:HealthComponent = get_node_or_null("HealthComponent")
+	health_component.max_health = health
 
 
 func _physics_process(delta: float) -> void:

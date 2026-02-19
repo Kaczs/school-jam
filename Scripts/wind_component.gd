@@ -23,4 +23,5 @@ func toggle():
 		add_to_group("affected by wind")
 
 func _on_button_pressed() -> void:
+	parent_body.linear_velocity = Vector2(0,0)
 	toggle()

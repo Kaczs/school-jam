@@ -42,6 +42,8 @@ func _input(event: InputEvent) -> void:
 			local_wind(drag_direction)
 		current_wind -= 1
 		EventBus.emit_signal("wind_changed", current_wind)
+		EventBus.emit_signal("moving_pathfinding_objects")
+		# Need to rebake pathfinding on timer
 		accumulated_drag = Vector2.ZERO
 
 ## Use wind on everything in the group

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b25xtwhs2csqi"]
+
+[ext_resource type="Texture2D" uid="uid://2vw8cjobigj5" path="res://Assets/Sprites/Pyramid.png" id="1_t3sbr"]
+[ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="2_t3sbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7gqf"]
+size = Vector2(128, 128)
+
+[node name="MovableBox" type="RigidBody2D" unique_id=1672531924]
+mass = 10.0
+lock_rotation = true
+linear_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=281265203]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_i7gqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1714906042]
+texture = ExtResource("1_t3sbr")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=874231342]
+radius = 80.0
+vertices = PackedVector2Array(-66, -65, -66, 67, 67, 67, 64, -65)
+affect_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="WindComponent" parent="." unique_id=1070236565 instance=ExtResource("2_t3sbr")]
+scale = Vector2(2, 2)

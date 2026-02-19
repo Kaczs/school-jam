@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="5_20uw2"]
 [ext_resource type="SpriteFrames" uid="uid://brjodx7c5pirw" path="res://Assets/Resources/bottle_sprite_frames.tres" id="5_xe7un"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="6_m0h5h"]
-[ext_resource type="Script" uid="uid://ckq4offqa3gw8" path="res://Scenes/Levels/wind_bottle.gd" id="6_v3vqe"]
+[ext_resource type="Script" uid="uid://ckq4offqa3gw8" path="res://Scripts/wind_bottle.gd" id="6_v3vqe"]
 [ext_resource type="TileSet" uid="uid://dv2ek4xnnct6f" path="res://Assets/Resources/ground_tileset.tres" id="7_20uw2"]
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="8_i36j2"]
 [ext_resource type="Script" uid="uid://bs4o6du5c6aan" path="res://Scripts/Towers/ballista_tower.gd" id="9_4f2fw"]
@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 [sub_resource type="Resource" id="Resource_nqasx"]
 script = ExtResource("4_m0h5h")
 scene = ExtResource("5_20uw2")
-count = 3
+count = 5
 spawn_rate = 1.5
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
@@ -108,7 +108,7 @@ to_spawn = Array[ExtResource("4_m0h5h")]([SubResource("Resource_xqoth"), SubReso
 position = Vector2(1842, 952)
 
 [node name="BallistaTower" type="RigidBody2D" parent="." unique_id=1845065025 groups=["tutorial_tower"]]
-position = Vector2(1261, 460)
+position = Vector2(1139, 460)
 collision_mask = 3
 mass = 5.0
 lock_rotation = true
