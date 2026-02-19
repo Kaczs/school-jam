@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://krdnhpomjc73" path="res://Scenes/UI/ui.tscn" id="5_46s4o"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="6_ndqic"]
 [ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="7_vqlhw"]
+[ext_resource type="Script" uid="uid://dobo3k5tvfyig" path="res://Scripts/enemy_spawner.gd" id="9_c346c"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="9_opn2v"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="10_jk2yk"]
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="12_c346c"]
@@ -22,8 +23,7 @@ agent_radius = 25.0
 [sub_resource type="Resource" id="Resource_nqasx"]
 script = ExtResource("7_vqlhw")
 scene = ExtResource("9_opn2v")
-count = 5
-spawn_rate = 0.5
+count = 3
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
 [node name="level4" type="Node2D" unique_id=1781606394 node_paths=PackedStringArray("spawners")]
@@ -53,20 +53,21 @@ metadata/_edit_lock_ = true
 wait_time = 3.0
 one_shot = true
 
-[node name="BallistaTower" parent="NavigationRegion2D" unique_id=1845065025 instance=ExtResource("12_c346c")]
-position = Vector2(93, 940)
-
 [node name="BallistaTower2" parent="NavigationRegion2D" unique_id=1595310582 instance=ExtResource("12_c346c")]
 position = Vector2(1839, 955)
 
 [node name="ArtilleryTower" parent="NavigationRegion2D" unique_id=953662431 instance=ExtResource("12_lmqgw")]
-position = Vector2(635, 521)
+position = Vector2(936, 397)
 
 [node name="UI" parent="." unique_id=1189717003 instance=ExtResource("5_46s4o")]
 
-[node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("6_ndqic")]
-position = Vector2(1868, 493)
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=462682666]
+position = Vector2(1872, 512)
+script = ExtResource("9_c346c")
 to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_nqasx")])
+
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=1734237674]
+wait_time = 10.0
 
 [node name="EnemySpawner2" parent="." unique_id=533580324 instance=ExtResource("6_ndqic")]
 position = Vector2(63, 497)

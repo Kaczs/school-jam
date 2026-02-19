@@ -17,18 +17,15 @@ func _ready():
 func _physics_process(_delta:float):
 	if target_last_pos != null:
 		var direction = global_position.direction_to(target_last_pos)
-		# Should not be doing linear velocity directly
-		linear_velocity = direction * speed
+		apply_central_force(direction * speed)
 	if global_position.distance_to(target_last_pos) <= 10:
-		print("reached point")
-		# BOOM
+		explode()
 
 func assign_target(body:RigidBody2D):
 	target = body
 	target_last_pos = target.global_position
 
 func _on_body_shape_entered(_body_rid: RID, body: Node, _body_shape_index: int, _local_shape_index: int) -> void:
-	print("HITITITIIT")
 	# Unlike the arrow tower, this one just does damage to whoever it hits
 	var health:HealthComponent = body.get_node_or_null("HealthComponent")
 	if health != null:

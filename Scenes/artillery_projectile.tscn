@@ -72,8 +72,9 @@ collision_mask = 2
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
+linear_damp = 1.0
 script = ExtResource("1_yn4mh")
-speed = 200.0
+speed = 500.0
 damage = 75
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=74732510]

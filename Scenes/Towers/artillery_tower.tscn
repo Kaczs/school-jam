@@ -10,7 +10,7 @@
 size = Vector2(60, 60)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_widou"]
-radius = 400.0
+radius = 700.0
 
 [node name="ArtilleryTower" type="RigidBody2D" unique_id=1845065025]
 mass = 5.0
@@ -44,6 +44,7 @@ position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_widou")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=313998838]
+wait_time = 2.5
 
 [node name="WindComponent" parent="." unique_id=1070236565 instance=ExtResource("4_ebv1s")]
 
