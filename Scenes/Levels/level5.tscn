@@ -5,7 +5,8 @@
 [ext_resource type="Script" uid="uid://dvpqim5omfji7" path="res://Scripts/navigation_region_2d.gd" id="3_ykvih"]
 [ext_resource type="TileSet" uid="uid://b8bqcouefk1rw" path="res://Assets/Resources/wall_tileset.tres" id="4_rp22a"]
 [ext_resource type="PackedScene" uid="uid://krdnhpomjc73" path="res://Scenes/UI/ui.tscn" id="5_cow3m"]
-[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="7_x3xif"]
+[ext_resource type="PackedScene" uid="uid://cvyicx01sm07a" path="res://Scenes/level_menu.tscn" id="6_t788b"]
+[ext_resource type="Script" path="res://Scripts/spawn_entry.gd" id="7_x3xif"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="8_1sss4"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="9_agagt"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="10_qauki"]
@@ -57,6 +58,10 @@ wait_time = 3.0
 one_shot = true
 
 [node name="UI" parent="." unique_id=1189717003 instance=ExtResource("5_cow3m")]
+
+[node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("6_t788b")]
+visible = false
+currenct_level = "res://Scenes/Levels/level1.tscn"
 
 [node name="EnemySpawner2" parent="." unique_id=462682666 instance=ExtResource("9_agagt")]
 position = Vector2(130, 520)
