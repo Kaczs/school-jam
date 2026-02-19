@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="4_o54qx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qg46"]
-size = Vector2(64, 64)
+size = Vector2(60, 60)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_widou"]
 radius = 400.0

@@ -6,3 +6,4 @@
 script = ExtResource("1_4l55s")
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1734237674]
+wait_time = 3.0

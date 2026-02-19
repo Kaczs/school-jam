@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfrsw10k6762u" path="res://Scripts/wind_controller.gd" id="1_a0rca"]
 [ext_resource type="PackedScene" uid="uid://cvynqb4f5uf8n" path="res://Assets/Particles/local_wind_particles.tscn" id="2_w1irw"]
+[ext_resource type="PackedScene" uid="uid://bv6khsxisgtw8" path="res://Assets/Particles/global_wind_particles.tscn" id="3_lcwk3"]
 
 [node name="WindController" type="Node2D" unique_id=1545098080]
 script = ExtResource("1_a0rca")
@@ -9,5 +10,7 @@ script = ExtResource("1_a0rca")
 [node name="LocalWindParticles" parent="." unique_id=1416111748 instance=ExtResource("2_w1irw")]
 
 [node name="RegenTimer" type="Timer" parent="." unique_id=382791801]
+
+[node name="GlobalWindParticles" parent="." unique_id=1915852118 instance=ExtResource("3_lcwk3")]
 
 [connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]

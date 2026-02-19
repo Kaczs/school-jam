@@ -11,6 +11,7 @@ var drag_direction = Vector2(0, 0)
 var accumulated_drag = Vector2.ZERO
 var local_wind_mode = true	
 @onready var local_wind_particles:GPUParticles2D = $LocalWindParticles
+@onready var global_wind_particles:GPUParticles2D = $GlobalWindParticles
 @onready var regen_timer:Timer = $RegenTimer
 
 func _ready():
@@ -20,7 +21,9 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("local_wind"):
 		local_wind_mode = true
+		EventBus.emit_signal("wind_mode", "local")
 	if Input.is_action_just_pressed("global_wind"):
+		EventBus.emit_signal("wind_mode", "global")
 		local_wind_mode = false
 	
 
@@ -52,6 +55,7 @@ func global_wind(direction:Vector2):
 	for target in targets:
 		target.parent_body.apply_force(direction * wind_force)
 		# Slow enemies temp. when hitting them with wind?
+	create_global_wind_particles(direction)
 
 ## Use wind on bodies near the mouse, as opposed to the entire group
 ## local wind is a bit stronger
@@ -69,6 +73,11 @@ func create_local_wind_particles(direction:Vector2):
 	var process_mat:ParticleProcessMaterial = local_wind_particles.process_material
 	process_mat.direction = Vector3(direction.x, direction.y, 0.0)
 	local_wind_particles.emitting = true
+
+func create_global_wind_particles(direction:Vector2):
+	var process_mat:ParticleProcessMaterial = global_wind_particles.process_material
+	process_mat.direction = Vector3(direction.x, direction.y, 0.0)
+	global_wind_particles.emitting = true
 
 
 func _on_regen_timer_timeout() -> void:
