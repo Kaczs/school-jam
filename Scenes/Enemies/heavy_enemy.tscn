@@ -10,7 +10,7 @@ radius = 25.019993
 
 [node name="HeavyEnemy" type="RigidBody2D" unique_id=924509886]
 collision_layer = 3
-mass = 3.0
+mass = 6.0
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp_mode = 1
@@ -18,7 +18,7 @@ linear_damp = 2.0
 angular_damp_mode = 1
 angular_damp = 1.0
 script = ExtResource("1_pwy1a")
-speed = 1000
+speed = 3000
 health = 150
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1000397959]

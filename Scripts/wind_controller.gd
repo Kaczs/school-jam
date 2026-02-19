@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @export var wind_force = 80000
 ## The radius of the circle local wind can affect
@@ -10,6 +10,8 @@ var current_wind := 2
 var drag_direction = Vector2(0, 0)
 var accumulated_drag = Vector2.ZERO
 var local_wind_mode = true	
+var starting_point:Vector2
+var is_dragging:bool = false
 @onready var local_wind_particles:GPUParticles2D = $LocalWindParticles
 @onready var global_wind_particles:GPUParticles2D = $GlobalWindParticles
 @onready var regen_timer:Timer = $RegenTimer
@@ -25,19 +27,29 @@ func _process(_delta):
 	if Input.is_action_just_pressed("global_wind"):
 		EventBus.emit_signal("wind_mode", "global")
 		local_wind_mode = false
-	
+	if is_dragging:
+		queue_redraw()
 
 # Getting the mouse drags to know what direction to send wind.
 func _input(event: InputEvent) -> void:
-	# If we press wind button, start tracking the motion.
+	# We've started a drag
+	if Input.is_action_just_pressed("wind"):
+		is_dragging = true
+		starting_point = get_viewport().get_mouse_position()
+		accumulated_drag = Vector2.ZERO
+	# Start tracking the drag motion
 	if Input.is_action_pressed("wind"):
 		if event is InputEventMouseMotion:
 			accumulated_drag += event.relative
 	# Once we release the button act on that motion
-	if Input.is_action_just_released("wind") and current_wind > 0:
+	if Input.is_action_just_released("wind"):
+		is_dragging = false
+		# Dont have enough to cover the cost
+		if current_wind <= 0:
+			return
 		drag_direction = accumulated_drag.normalized()
 		# If they didnt actually drag their mouse, dont do anything
-		if drag_direction == Vector2(0, 0):
+		if drag_direction == Vector2.ZERO:
 			return
 		if local_wind_mode == false:
 			global_wind(drag_direction)
@@ -46,14 +58,13 @@ func _input(event: InputEvent) -> void:
 		current_wind -= 1
 		EventBus.emit_signal("wind_changed", current_wind)
 		EventBus.emit_signal("moving_pathfinding_objects")
-		# Need to rebake pathfinding on timer
-		accumulated_drag = Vector2.ZERO
+		queue_redraw()
 
 ## Use wind on everything in the group
 func global_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
-		target.parent_body.apply_force(direction * wind_force)
+		target.parent_body.apply_force(direction * (wind_force * 0.7))
 		# Slow enemies temp. when hitting them with wind?
 	create_global_wind_particles(direction)
 
@@ -62,14 +73,14 @@ func global_wind(direction:Vector2):
 func local_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
-		if target.global_position.distance_to(get_viewport().get_mouse_position()) <= local_size:
+		if target.global_position.distance_to(starting_point) <= local_size:
 			#print("Target distance: ", target.global_position.distance_to(get_viewport().get_mouse_position()))
-			target.parent_body.apply_force(direction * (wind_force*1.7))
+			target.parent_body.apply_force(direction * wind_force)
 	# We wanna create particles even if the player isnt pushing anything
 	create_local_wind_particles(direction)
 	
 func create_local_wind_particles(direction:Vector2):
-	local_wind_particles.global_position = get_viewport().get_mouse_position()
+	local_wind_particles.global_position = starting_point
 	var process_mat:ParticleProcessMaterial = local_wind_particles.process_material
 	process_mat.direction = Vector3(direction.x, direction.y, 0.0)
 	local_wind_particles.emitting = true
@@ -79,6 +90,15 @@ func create_global_wind_particles(direction:Vector2):
 	process_mat.direction = Vector3(direction.x, direction.y, 0.0)
 	global_wind_particles.emitting = true
 
+func _draw():
+	if not is_dragging or current_wind <= 0:
+		return
+	# Make a circle for local wind so players can tell where they're aiming
+	if local_wind_mode:
+		draw_circle(starting_point, local_size, Color(1, 1, 1, 0.3))
+	if accumulated_drag.length() > 5.0:
+		var line_end = starting_point + accumulated_drag.normalized() * 120.0
+		draw_line(starting_point, get_viewport().get_mouse_position(), Color(1, 1, 1, 0.6), 3.0)
 
 func _on_regen_timer_timeout() -> void:
 	if current_wind < max_wind:
