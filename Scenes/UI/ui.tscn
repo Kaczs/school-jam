@@ -13,12 +13,11 @@ offset_bottom = 128.0
 script = ExtResource("1_fo61o")
 
 [node name="LocalWindIcon" type="TextureRect" parent="HBoxContainer" unique_id=480844223]
-modulate = Color(0, 1, 1, 1)
 layout_mode = 2
 texture = ExtResource("1_c7mb3")
 
 [node name="GlobalWindIcon" type="TextureRect" parent="HBoxContainer" unique_id=1821594572]
-modulate = Color(1, 0.21176471, 0.3137255, 0.33333334)
+modulate = Color(1, 1, 1, 0.33333334)
 layout_mode = 2
 texture = ExtResource("1_c7mb3")
 
@@ -44,3 +43,19 @@ offset_left = -50.0
 offset_top = -70.0
 offset_right = 50.0
 offset_bottom = 80.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1483009189]
+offset_left = 44.0
+offset_top = 129.0
+offset_right = 93.0
+offset_bottom = 179.0
+theme_override_font_sizes/normal_font_size = 32
+text = "[1]"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=857979642]
+offset_left = 177.0
+offset_top = 129.0
+offset_right = 226.0
+offset_bottom = 179.0
+theme_override_font_sizes/normal_font_size = 32
+text = "[2]"

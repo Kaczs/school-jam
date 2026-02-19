@@ -2,7 +2,8 @@ class_name EnemySpawner extends Node2D
 @export var to_spawn:Array[SpawnEntry]
 
 @onready var spawn_timer:Timer = $SpawnTimer
-signal spawns_complete
+var spawns_complete:bool = false
+var enemy_list:Array = []
 
 ## Iterate through all the entries in the to_spawn list
 ## for each entry spawn 1 then wait for the timer to complete
@@ -22,7 +23,8 @@ func begin_spawns():
 			spawn_timer.wait_time = spawn.spawn_rate
 			spawn_timer.start()
 			await spawn_timer.timeout
-	spawns_complete.emit()
+	create_enemy_list()
+	spawns_complete = true
 
 func check_for_blocked_spawns():
 	var query = PhysicsPointQueryParameters2D.new()
@@ -37,5 +39,13 @@ func check_for_blocked_spawns():
 
 ## This will track the last of the enemies and emit a signal when they're all dead
 ## signalling the level is complete.
-func track_last_enemies():
-	pass
+func create_enemy_list():
+	print("creating enemy list")
+	enemy_list = get_children()
+	enemy_list.erase(spawn_timer)
+
+func _process(delta):
+	if spawns_complete == true:
+		if enemy_list.is_empty() == true:
+			print("List is empty")
+			EventBus.all_enemies_dead.emit()
