@@ -2,14 +2,28 @@
 
 [ext_resource type="Script" uid="uid://bya1872hrs61r" path="res://Scripts/wind_component.gd" id="1_bljqw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bljqw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfgp3"]
+bg_color = Color(0, 0, 0, 0.19607843)
+
 [node name="WindComponent" type="Node2D" unique_id=1070236565]
 script = ExtResource("1_bljqw")
 
 [node name="Button" type="Button" parent="." unique_id=235188524]
-offset_left = 36.0
-offset_top = -73.0
-offset_right = 88.0
-offset_bottom = -42.0
-text = "Lock"
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 37.5
+offset_bottom = 37.5
+theme_override_colors/font_pressed_color = Color(0.31035072, 0.00061896147, 0.82313854, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0.011764706)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bljqw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lfgp3")
+toggle_mode = true
+button_mask = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

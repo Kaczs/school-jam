@@ -15,12 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="School Jam"
-run/main_scene="uid://cv28q5shj67n4"
+run/main_scene="uid://c8v0rvgowuerw"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Assets/Sprites/icon.svg"
 
 [autoload]
 
+EventBus="*uid://bpbuo7fvfpj18"
 LevelManager="*uid://fhewivpej0i3"
 
 [display]

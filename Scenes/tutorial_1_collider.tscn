@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bapnr406381qq"]
+
+[ext_resource type="Script" uid="uid://cyov0bnta78xs" path="res://Scripts/tutorial1.gd" id="1_r17xf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yq3f"]
+size = Vector2(300, 300)
+
+[node name="Tutorial1Collider" type="Node2D" unique_id=120829070]
+script = ExtResource("1_r17xf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=74007021]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1246616105]
+shape = SubResource("RectangleShape2D_8yq3f")
+
+[node name="Timer" type="Timer" parent="." unique_id=173918512]
+wait_time = 10.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1551705975]
+offset_left = 30.0
+offset_top = -212.0
+offset_right = 591.0
+offset_bottom = -83.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Hold [Left Mouse] and drag to the left
+<--------------------"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1601391956]
+visible = false
+offset_left = 687.0
+offset_top = -439.0
+offset_right = 1050.0
+offset_bottom = -310.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "The bottle shows how much \"wind\" you have left."
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=369310685]
+offset_left = 855.0
+offset_top = 362.0
+offset_right = 1176.0
+offset_bottom = 415.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Defend this point!"
+horizontal_alignment = 1
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
