@@ -9,19 +9,19 @@ var rebinding := false
 
 func _ready() -> void:
 	self.text = input_event.as_text().trim_suffix(" - Physical")
-	mother.disable_key_rebinding.connect(_on_disable_key_rebinding)
+	mother._disable_key_rebinding.connect(_on_disable_key_rebinding)
 	self.pressed.connect(_on_pressed)
 
 
 func _on_pressed() -> void:
-	mother.disable_key_rebinding.emit(true)
+	mother._disable_key_rebinding.emit(true)
 	rebinding = true
 	InputMap.action_erase_event(action,input_event)
 	self.text = "new key please"
 
 #stops the player from rebinding multiple actions at once
-func _on_disable_key_rebinding(bool) -> void:
-	self.set_disabled(bool)
+func _on_disable_key_rebinding(x:bool) -> void:
+	self.set_disabled(x)
 
 #I use unhandle inputs to stop the mouse from showing up
 #I dont think this is the best way to rebind a event to an action but I dont see any problems so far

@@ -1,6 +1,6 @@
 extends Control
 
-signal disable_key_rebinding(bool:bool)
+signal _disable_key_rebinding(disabled:bool)
 
 var rebindable_actions:Dictionary = {
 	#name of action in project settings : name you want to be displayed to the user, 
@@ -24,5 +24,5 @@ func _ready() -> void:
 			button.action = action
 			button.input_event = event
 			button.mother = self
-			button.theme = load("res://Button.tres")
+			button.theme = load("res://Assets/Resources/Button.tres")
 			key_binding.find_child("HBoxButtonContainer",true).add_child(button)
