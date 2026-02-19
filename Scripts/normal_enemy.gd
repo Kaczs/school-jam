@@ -14,6 +14,7 @@ func _ready() -> void:
 		push_warning(self, " could not find Goal")
 	var health_component:HealthComponent = get_node_or_null("HealthComponent")
 	health_component.max_health = health
+	health_component.health = health
 
 
 func _physics_process(_delta: float) -> void:
