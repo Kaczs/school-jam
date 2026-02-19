@@ -64,7 +64,7 @@ func _input(event: InputEvent) -> void:
 func global_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
-		target.parent_body.apply_force(direction * wind_force)
+		target.parent_body.apply_force(direction * (wind_force * 0.7))
 		# Slow enemies temp. when hitting them with wind?
 	create_global_wind_particles(direction)
 
@@ -73,14 +73,14 @@ func global_wind(direction:Vector2):
 func local_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
-		if target.global_position.distance_to(get_viewport().get_mouse_position()) <= local_size:
+		if target.global_position.distance_to(starting_point) <= local_size:
 			#print("Target distance: ", target.global_position.distance_to(get_viewport().get_mouse_position()))
-			target.parent_body.apply_force(direction * (wind_force*1.7))
+			target.parent_body.apply_force(direction * wind_force)
 	# We wanna create particles even if the player isnt pushing anything
 	create_local_wind_particles(direction)
 	
 func create_local_wind_particles(direction:Vector2):
-	local_wind_particles.global_position = get_viewport().get_mouse_position()
+	local_wind_particles.global_position = starting_point
 	var process_mat:ParticleProcessMaterial = local_wind_particles.process_material
 	process_mat.direction = Vector3(direction.x, direction.y, 0.0)
 	local_wind_particles.emitting = true
@@ -95,7 +95,7 @@ func _draw():
 		return
 	# Make a circle for local wind so players can tell where they're aiming
 	if local_wind_mode:
-		draw_circle(get_viewport().get_mouse_position(), local_size, Color(1, 1, 1, 0.3))
+		draw_circle(starting_point, local_size, Color(1, 1, 1, 0.3))
 	if accumulated_drag.length() > 5.0:
 		var line_end = starting_point + accumulated_drag.normalized() * 120.0
 		draw_line(starting_point, get_viewport().get_mouse_position(), Color(1, 1, 1, 0.6), 3.0)
