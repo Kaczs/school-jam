@@ -53,5 +53,4 @@ func check_line_of_sight():
 	if result.is_empty():
 		return true
 	else:
-		print(result)
 		return false

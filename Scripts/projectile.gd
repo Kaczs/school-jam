@@ -25,7 +25,6 @@ func assign_target(body:RigidBody2D):
 	target = body
 
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	print("Target hit")
 	if body == target:
 		if health != null:
 			health.take_damage(damage)
