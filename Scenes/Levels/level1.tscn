@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://bs4o6du5c6aan" path="res://Scripts/Towers/ballista_tower.gd" id="9_4f2fw"]
 [ext_resource type="Texture2D" uid="uid://ciigq5hsq875v" path="res://Assets/Sprites/BallistaAttackTower.png" id="10_8r8ce"]
 [ext_resource type="Texture2D" uid="uid://pxbgjk60ypid" path="res://Assets/Sprites/TowerBase.png" id="11_nqasx"]
+[ext_resource type="Script" uid="uid://chnoityef8rxk" path="res://Scripts/goal.gd" id="11_v3vqe"]
 [ext_resource type="PackedScene" uid="uid://bapnr406381qq" path="res://Scenes/tutorial_1_collider.tscn" id="12_8r8ce"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="12_ryjqc"]
 
@@ -98,6 +99,7 @@ to_spawn = Array[ExtResource("4_m0h5h")]([SubResource("Resource_xqoth"), SubReso
 
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("6_m0h5h")]
 position = Vector2(1842, 952)
+script = ExtResource("11_v3vqe")
 
 [node name="BallistaTower" type="RigidBody2D" parent="." unique_id=1845065025 groups=["tutorial_tower"]]
 position = Vector2(1139, 460)
