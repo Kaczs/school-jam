@@ -4,13 +4,6 @@ class_name EnemySpawner extends Node2D
 @onready var spawn_timer:Timer = $SpawnTimer
 signal spawns_complete
 
-var tempbool = false
-
-func _process(delta):
-	if Input.is_key_pressed(KEY_L) and tempbool == false:
-		begin_spawns()
-		tempbool = true
-
 ## Iterate through all the entries in the to_spawn list
 ## for each entry spawn 1 then wait for the timer to complete
 ## do this until you've done one for every count, then
