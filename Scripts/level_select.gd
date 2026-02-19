@@ -1,5 +1,5 @@
 extends CenterContainer
-@onready var button_container = $VBoxContainer
+@onready var button_container = %VBoxContainer
 
 func _ready() -> void:
 	var unlocked_levels:Array = LevelManager.unlocked_levels
