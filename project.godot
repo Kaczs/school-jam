@@ -63,6 +63,11 @@ UI_open_menu={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Walls/Other Obstruction"
+2d_physics/layer_2="Enemies"
+
 [physics]
 
 2d/default_gravity=0.0
