@@ -3,7 +3,7 @@ extends TowerBase
 var targets:Array[RigidBody2D]
 @onready var turret:Sprite2D = $Tower
 @onready var cooldown_timer:Timer = $Cooldown
-var projectile = preload("res://Scenes/projectile.tscn")
+@export var projectile = preload("res://Scenes/projectile.tscn")
 
 func _process(_delta):
 	if targets.is_empty() == false:
