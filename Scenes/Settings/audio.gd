@@ -21,7 +21,7 @@ func _ready() -> void:
 		slider.step = 0.01
 		slider.value = AudioServer.get_bus_volume_linear(bus_index)
 		slider.value_changed.connect(func(value): AudioServer.set_bus_volume_linear(bus_index, value))
-		slider.value_changed.connect(func(value): print(AudioServer.get_bus_volume_db(bus_index)))
+		slider.value_changed.connect(func(_value): print(AudioServer.get_bus_volume_db(bus_index)))
 		slider.custom_minimum_size = Vector2(400,20)
 		box.add_child(slider)
 		var button:Label = Label.new()

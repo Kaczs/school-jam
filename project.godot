@@ -28,6 +28,7 @@ buses/default_bus_layout="res://Assets/Resources/default_bus_layout.tres"
 EventBus="*uid://bpbuo7fvfpj18"
 LevelManager="*uid://fhewivpej0i3"
 SoundManager="*uid://bmy0b5dcme3hl"
+SoundFiles="*uid://bssgvs57t2iim"
 
 [display]
 

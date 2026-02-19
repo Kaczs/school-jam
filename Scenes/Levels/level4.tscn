@@ -8,10 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://krdnhpomjc73" path="res://Scenes/UI/ui.tscn" id="5_46s4o"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="6_ndqic"]
 [ext_resource type="PackedScene" uid="uid://b25xtwhs2csqi" path="res://Scenes/movable_box.tscn" id="7_c346c"]
-[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="7_vqlhw"]
+[ext_resource type="Script" path="res://Scripts/spawn_entry.gd" id="7_vqlhw"]
 [ext_resource type="Script" uid="uid://dobo3k5tvfyig" path="res://Scripts/enemy_spawner.gd" id="9_c346c"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="9_opn2v"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="10_jk2yk"]
+[ext_resource type="PackedScene" uid="uid://cvyicx01sm07a" path="res://Scenes/level_menu.tscn" id="10_ndqic"]
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="12_c346c"]
 [ext_resource type="PackedScene" uid="uid://mbkdc11c52wk" path="res://Scenes/Towers/artillery_tower.tscn" id="12_lmqgw"]
 
@@ -86,6 +87,10 @@ position = Vector2(1840, 941)
 position = Vector2(964, 972)
 
 [node name="UI" parent="." unique_id=1189717003 instance=ExtResource("5_46s4o")]
+
+[node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("10_ndqic")]
+visible = false
+currenct_level = "res://Scenes/Levels/level1.tscn"
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=462682666]
 position = Vector2(1800, 520)

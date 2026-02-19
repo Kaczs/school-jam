@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="6_m0h5h"]
 [ext_resource type="Script" uid="uid://ckq4offqa3gw8" path="res://Scripts/wind_bottle.gd" id="6_v3vqe"]
 [ext_resource type="TileSet" uid="uid://dv2ek4xnnct6f" path="res://Assets/Resources/ground_tileset.tres" id="7_20uw2"]
+[ext_resource type="PackedScene" uid="uid://cvyicx01sm07a" path="res://Scenes/level_menu.tscn" id="7_v3vqe"]
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="8_i36j2"]
 [ext_resource type="Script" uid="uid://bs4o6du5c6aan" path="res://Scripts/Towers/ballista_tower.gd" id="9_4f2fw"]
 [ext_resource type="Texture2D" uid="uid://ciigq5hsq875v" path="res://Assets/Sprites/BallistaAttackTower.png" id="10_8r8ce"]
@@ -92,6 +93,10 @@ offset_left = -50.0
 offset_top = -70.0
 offset_right = 50.0
 offset_bottom = 80.0
+
+[node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("7_v3vqe")]
+visible = false
+currenct_level = "res://Scenes/Levels/level1.tscn"
 
 [node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("3_c0r4e")]
 position = Vector2(98, 176)

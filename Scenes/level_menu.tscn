@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cvyicx01sm07a"]
 
 [ext_resource type="Script" uid="uid://bpii6kpmwhgxn" path="res://Scripts/level_menu.gd" id="1_c64aj"]
+[ext_resource type="Theme" uid="uid://48gtr3xh7mky" path="res://Assets/Resources/Button.tres" id="2_4bw2l"]
 [ext_resource type="PackedScene" uid="uid://d4m7rbp05e81j" path="res://Scenes/Settings/settings_menu.tscn" id="2_ymr0u"]
+[ext_resource type="Theme" uid="uid://bfkbh31dwgcpo" path="res://Assets/Resources/Settings.tres" id="4_64jxr"]
 
 [node name="LevelMenu" type="Control" unique_id=2140832043]
 layout_mode = 3
@@ -26,24 +28,33 @@ layout_mode = 2
 
 [node name="Resume" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2001068849]
 layout_mode = 2
+theme = ExtResource("2_4bw2l")
+theme_override_font_sizes/font_size = 64
 text = "Resume"
 
 [node name="Restart" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1998546613]
 layout_mode = 2
+theme = ExtResource("2_4bw2l")
+theme_override_font_sizes/font_size = 64
 text = "Restart"
 
 [node name="Settings" type="Button" parent="CenterContainer/VBoxContainer" unique_id=156300432]
 layout_mode = 2
+theme = ExtResource("2_4bw2l")
+theme_override_font_sizes/font_size = 64
 text = "Settings"
 
 [node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1117043329]
 layout_mode = 2
+theme = ExtResource("2_4bw2l")
+theme_override_font_sizes/font_size = 64
 text = "Main Menu"
 
 [node name="Settings2" parent="CenterContainer" unique_id=1794996779 instance=ExtResource("2_ymr0u")]
 visible = false
 custom_minimum_size = Vector2(700, 500)
 layout_mode = 2
+theme = ExtResource("4_64jxr")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
