@@ -71,6 +71,7 @@ animations = [{
 size = Vector2(100, 100)
 
 [node name="Goal" type="Node2D" unique_id=967983182 groups=["Goal"]]
+z_index = -1
 script = ExtResource("1_s0pnd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1853662262]

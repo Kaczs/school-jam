@@ -13,6 +13,7 @@ var target:RigidBody2D
 var marker:Node2D
 
 func _ready():
+	SoundManager.play_global(SoundFiles.cannon, self)
 	if animated_sprite != null:
 		animated_sprite.play()
 	timer.start()

@@ -39,7 +39,6 @@ func spawn_projectile():
 	get_tree().get_root().add_child(new_projectile)
 	new_projectile.position = position	
 
-
 func _on_cooldown_timeout() -> void:
 	# Every timeout 
 	if targets.is_empty() == false:

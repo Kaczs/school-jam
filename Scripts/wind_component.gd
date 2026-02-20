@@ -16,6 +16,7 @@ func _ready():
 ## This will be used in game to lock towers and obstacles in place,
 ## and prevent wind from affecting them.
 func toggle():
+	SoundManager.play_global(SoundFiles.lock, self)
 	toggled = not toggled
 	if toggled == false:
 		remove_from_group("affected by wind")
