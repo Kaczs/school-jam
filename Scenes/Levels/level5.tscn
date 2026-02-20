@@ -29,14 +29,14 @@ agent_radius = 25.0
 script = ExtResource("7_x3xif")
 scene = ExtResource("8_1sss4")
 count = 10
-spawn_rate = 2.0
+spawn_rate = 2.5
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
 [sub_resource type="Resource" id="Resource_x3xif"]
 script = ExtResource("7_x3xif")
 scene = ExtResource("8_1sss4")
 count = 10
-spawn_rate = 1.5
+spawn_rate = 2.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
 [sub_resource type="Resource" id="Resource_1sss4"]
@@ -73,7 +73,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Cacti" parent="NavigationRegion2D" unique_id=1851072854 instance=ExtResource("11_f11tu")]
-position = Vector2(1560, 743)
+position = Vector2(1521, 782)
 
 [node name="Cacti2" parent="NavigationRegion2D" unique_id=1655299003 instance=ExtResource("7_cow3m")]
 position = Vector2(1292, 587)
@@ -88,10 +88,10 @@ position = Vector2(201, 227)
 position = Vector2(194, 908)
 
 [node name="Cacti4" parent="NavigationRegion2D" unique_id=478133101 instance=ExtResource("11_f11tu")]
-position = Vector2(1104, 177)
+position = Vector2(1832, 334)
 
 [node name="Cacti5" parent="NavigationRegion2D" unique_id=908891602 instance=ExtResource("11_f11tu")]
-position = Vector2(1019, 966)
+position = Vector2(1443, 317)
 
 [node name="UI" parent="." unique_id=1189717003 instance=ExtResource("5_cow3m")]
 
@@ -113,10 +113,10 @@ to_spawn = Array[ExtResource("7_x3xif")]([SubResource("Resource_36ddn"), SubReso
 position = Vector2(1829, 578)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1527393120]
-offset_left = 1188.0
-offset_top = 345.0
-offset_right = 1673.0
-offset_bottom = 554.0
+offset_left = 1186.0
+offset_top = 349.0
+offset_right = 1671.0
+offset_bottom = 558.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 32
 text = "Cacti damage any enemies that make contact.

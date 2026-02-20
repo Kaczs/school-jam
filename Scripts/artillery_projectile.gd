@@ -42,6 +42,7 @@ func _on_body_shape_entered(_body_rid: RID, body: Node, _body_shape_index: int, 
 		explode()
 
 func explode():
+	SoundManager.play_global(SoundFiles.boom, get_tree().get_root())
 	linear_velocity = Vector2.ZERO
 	explosion_area.monitoring = true
 	# Wait to check overlaps (I hate this error)

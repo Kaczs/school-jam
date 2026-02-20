@@ -117,7 +117,6 @@ position = Vector2(352, 94)
 
 [node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("10_h5mjn")]
 visible = false
-currenct_level = "res://Scenes/Levels/level1.tscn"
 
 [node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("11_a6ycj")]
 position = Vector2(82, 506)

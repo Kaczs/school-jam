@@ -1,7 +1,8 @@
 extends Node
 
 #region SFX
-
+var hit_sound = "res://Assets/Audio/HitSound.wav"
+var boom = "res://Assets/Audio/Boom.wav"
 #endregion
 
 #region music

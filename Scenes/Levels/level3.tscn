@@ -116,7 +116,6 @@ position = Vector2(968, 288)
 
 [node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("9_du1gc")]
 visible = false
-currenct_level = "res://Scenes/Levels/level1.tscn"
 
 [node name="LossScreen" parent="UI" unique_id=1886424522 instance=ExtResource("10_w3eof")]
 visible = false
