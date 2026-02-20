@@ -19,7 +19,7 @@ texture = ExtResource("1_hye4v")
 shape = SubResource("CircleShape2D_to6gs")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1307284763]
-radius = 25.0
+radius = 35.0
 affect_navigation_mesh = true
 avoidance_enabled = false
 

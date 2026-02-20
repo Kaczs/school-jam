@@ -7,7 +7,8 @@ var level_unlocks:Dictionary = {
 	"level1":preload("res://Scenes/Levels/level2.tscn"),
 	"level2":preload("res://Scenes/Levels/level3.tscn"),
 	"level3":preload("res://Scenes/Levels/level4.tscn"),
-	"level4":preload("res://Scenes/Levels/level5.tscn")
+	"level4":preload("res://Scenes/Levels/level5.tscn"),
+	"level5":preload("res://Scenes/Levels/level6.tscn")
 }
 
 

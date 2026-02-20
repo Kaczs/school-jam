@@ -122,6 +122,5 @@ to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_nqasx"), SubReso
 
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("10_jk2yk")]
 position = Vector2(960, 516)
-goal_hp = 10
 
 [connection signal="timeout" from="NavigationRegion2D/RebakeTimer" to="NavigationRegion2D" method="_on_rebake_timer_timeout"]

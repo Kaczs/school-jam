@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bs3sw1ukvlykm"]
 
-[ext_resource type="Script" uid="uid://tdk4so4entgr" path="res://Scenes/artillery_projectile.gd" id="1_yn4mh"]
+[ext_resource type="Script" uid="uid://tdk4so4entgr" path="res://Scripts/artillery_projectile.gd" id="1_yn4mh"]
 [ext_resource type="Texture2D" uid="uid://g3ntafeflw0k" path="res://Assets/Sprites/BombAttackProjectile-Sheet.png" id="2_yn4mh"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="3_yn4mh"]
 
