@@ -45,5 +45,4 @@ func _process(delta):
 
 func remove_from_list(enemy):
 	enemy_list.erase(enemy)
-	print(enemy_list)
 	

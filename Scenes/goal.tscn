@@ -70,7 +70,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paeek"]
 size = Vector2(100, 100)
 
-[node name="Goal" type="Node2D" unique_id=967983182 groups=["Goal"]]
+[node name="Goal" type="Node2D" unique_id=967983182 groups=["Goal", "goal"]]
 z_index = -1
 script = ExtResource("1_s0pnd")
 

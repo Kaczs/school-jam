@@ -16,10 +16,8 @@ func _process(_delta):
 			cooldown_timer.start()
 			if needs_lineofsight:
 				if check_line_of_sight():
-					print("Shooting")
 					spawn_projectile()
 			else:
-				print("Shooting")
 				spawn_projectile()
 				
 
