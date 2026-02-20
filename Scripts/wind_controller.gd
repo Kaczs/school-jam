@@ -21,7 +21,6 @@ func _ready():
 	regen_timer.start()
 
 func _process(_delta):
-	print(current_wind)
 	if Input.is_action_just_pressed("local_wind"):
 		local_wind_mode = true
 		EventBus.emit_signal("wind_mode", "local")
@@ -66,7 +65,9 @@ func global_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
 		target.parent_body.apply_force(direction * (wind_force * 0.8))
-		# Slow enemies temp. when hitting them with wind?
+		# One off case, artillery shots should stop flying to goal when hit w/ wind
+		if target.parent_body is ArtilleryProjectile:
+				target.parent_body.hit_by_wind()
 	create_global_wind_particles(direction)
 
 ## Use wind on bodies near the mouse, as opposed to the entire group
@@ -75,8 +76,10 @@ func local_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
 		if target.global_position.distance_to(starting_point) <= local_size:
-			#print("Target distance: ", target.global_position.distance_to(get_viewport().get_mouse_position()))
 			target.parent_body.apply_force(direction * wind_force)
+			# One off case, artillery shots should stop flying to goal when hit w/ wind
+			if target.parent_body is ArtilleryProjectile:
+				target.parent_body.hit_by_wind()
 	# We wanna create particles even if the player isnt pushing anything
 	create_local_wind_particles(direction)
 	

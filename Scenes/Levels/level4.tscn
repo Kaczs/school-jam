@@ -43,8 +43,9 @@ count = 10
 spawn_rate = 2.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
-[node name="level4" type="Node2D" unique_id=1781606394]
+[node name="level4" type="Node2D" unique_id=1781606394 node_paths=PackedStringArray("spawners")]
 script = ExtResource("1_lmqgw")
+spawners = [NodePath("EnemySpawner"), NodePath("EnemySpawner2")]
 
 [node name="GroundLayer" type="TileMapLayer" parent="." unique_id=230203217]
 z_index = -2
@@ -73,7 +74,7 @@ one_shot = true
 position = Vector2(960, 272)
 
 [node name="MovableBox" parent="NavigationRegion2D" unique_id=1672531924 instance=ExtResource("7_c346c")]
-position = Vector2(962, 820)
+position = Vector2(941, 843)
 
 [node name="MovableBox2" parent="NavigationRegion2D" unique_id=452625989 instance=ExtResource("7_c346c")]
 position = Vector2(1464, 946)
@@ -82,7 +83,7 @@ position = Vector2(1464, 946)
 position = Vector2(1840, 941)
 
 [node name="BallistaTower2" parent="NavigationRegion2D" unique_id=837068973 instance=ExtResource("12_c346c")]
-position = Vector2(964, 972)
+position = Vector2(1089, 970)
 
 [node name="UI" parent="." unique_id=1189717003 instance=ExtResource("5_46s4o")]
 
