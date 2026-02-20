@@ -6,7 +6,7 @@ extends Node2D
 ## Max number of stored 'wind' uses
 @export var max_wind := 3
 @export var wind_regeneration_rate := 5.0
-var current_wind := 2
+@export var current_wind:int
 var drag_direction = Vector2(0, 0)
 var accumulated_drag = Vector2.ZERO
 var local_wind_mode = true	
@@ -21,6 +21,7 @@ func _ready():
 	regen_timer.start()
 
 func _process(_delta):
+	print(current_wind)
 	if Input.is_action_just_pressed("local_wind"):
 		local_wind_mode = true
 		EventBus.emit_signal("wind_mode", "local")
@@ -42,7 +43,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			accumulated_drag += event.relative
 	# Once we release the button act on that motion
-	if Input.is_action_just_released("wind"):
+	if Input.is_action_just_released("wind") and is_dragging:
 		is_dragging = false
 		# Dont have enough to cover the cost
 		if current_wind <= 0:
@@ -64,7 +65,7 @@ func _input(event: InputEvent) -> void:
 func global_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
-		target.parent_body.apply_force(direction * (wind_force * 0.7))
+		target.parent_body.apply_force(direction * (wind_force * 0.8))
 		# Slow enemies temp. when hitting them with wind?
 	create_global_wind_particles(direction)
 

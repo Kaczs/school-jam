@@ -7,6 +7,8 @@
 [node name="WindController" type="Node2D" unique_id=1545098080]
 script = ExtResource("1_a0rca")
 wind_force = 60000
+local_size = 400.0
+current_wind = 2
 
 [node name="LocalWindParticles" parent="." unique_id=1416111748 instance=ExtResource("2_w1irw")]
 
