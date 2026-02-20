@@ -13,6 +13,7 @@ var target:RigidBody2D
 var marker:Node2D
 
 func _ready():
+	SoundManager.play_global(SoundFiles.cannon, self)
 	if animated_sprite != null:
 		animated_sprite.play()
 	timer.start()
@@ -42,6 +43,7 @@ func _on_body_shape_entered(_body_rid: RID, body: Node, _body_shape_index: int, 
 		explode()
 
 func explode():
+	SoundManager.play_global(SoundFiles.boom, get_tree().get_root())
 	linear_velocity = Vector2.ZERO
 	explosion_area.monitoring = true
 	# Wait to check overlaps (I hate this error)

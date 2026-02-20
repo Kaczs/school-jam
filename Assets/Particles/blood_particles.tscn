@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bh4trgwrwdd88"]
+
+[sub_resource type="Curve" id="Curve_1hadu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ey4ed"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_4gqsg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_4aq7a"]
+curve_x = SubResource("Curve_1hadu")
+curve_y = SubResource("Curve_ey4ed")
+curve_z = SubResource("Curve_4gqsg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1hadu"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 45.0
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 100.0
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_4aq7a")
+gravity = Vector3(0, 0, 0)
+damping_min = 50.000004
+damping_max = 100.00001
+scale_min = 2.0
+scale_max = 4.0
+color = Color(0.712692, 2.9359758e-06, 5.7756904e-07, 1)
+hue_variation_min = -0.100000024
+hue_variation_max = 0.09999997
+
+[node name="BloodParticles" type="GPUParticles2D" unique_id=1850738552]
+emitting = false
+amount = 100
+lifetime = 8.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1hadu")
+
+[node name="Timer" type="Timer" parent="." unique_id=2129448505]
+wait_time = 8.0

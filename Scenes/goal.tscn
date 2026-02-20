@@ -2,15 +2,81 @@
 
 [ext_resource type="Texture2D" uid="uid://4nww7q1x45j0" path="res://Assets/Sprites/PlayerBase.png" id="1_paeek"]
 [ext_resource type="Script" uid="uid://chnoityef8rxk" path="res://Scripts/goal.gd" id="1_s0pnd"]
+[ext_resource type="Texture2D" uid="uid://c3bvf50axe1d2" path="res://Assets/Sprites/PlayerBaseDegradation.png" id="3_2lgk0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in2gb"]
+atlas = ExtResource("1_paeek")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egnc4"]
+atlas = ExtResource("3_2lgk0")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmc6d"]
+atlas = ExtResource("3_2lgk0")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwps8"]
+atlas = ExtResource("3_2lgk0")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lgk0"]
+atlas = ExtResource("3_2lgk0")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_djj4k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in2gb")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egnc4")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmc6d")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwps8")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lgk0")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paeek"]
 size = Vector2(100, 100)
 
-[node name="Goal" type="Node2D" unique_id=967983182 groups=["Goal"]]
+[node name="Goal" type="Node2D" unique_id=967983182 groups=["Goal", "goal"]]
+z_index = -1
 script = ExtResource("1_s0pnd")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=809833745]
-texture = ExtResource("1_paeek")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1853662262]
+sprite_frames = SubResource("SpriteFrames_djj4k")
+animation = &"1"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=954829946]
 

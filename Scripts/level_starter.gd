@@ -1,4 +1,4 @@
-extends Node2D
+class_name LevelStarter extends Node2D
 ## This manages winning and starting the spawner
 @export var tutorial := false
 @export var spawners:Array[EnemySpawner]

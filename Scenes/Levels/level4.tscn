@@ -16,7 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://cvyicx01sm07a" path="res://Scenes/level_menu.tscn" id="10_ndqic"]
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="12_c346c"]
 [ext_resource type="PackedScene" uid="uid://mbkdc11c52wk" path="res://Scenes/Towers/artillery_tower.tscn" id="12_lmqgw"]
+[ext_resource type="PackedScene" uid="uid://q6a5e0rxses2" path="res://Scenes/loss_screen.tscn" id="12_otlb7"]
+[ext_resource type="PackedScene" uid="uid://sx0w03itiw5k" path="res://Scenes/win_screen.tscn" id="13_hgq1i"]
+[ext_resource type="PackedScene" uid="uid://brkwb8ngba104" path="res://Scenes/Levels/level5.tscn" id="14_wbnnf"]
 [ext_resource type="PackedScene" uid="uid://dm8wart2qijrc" path="res://Scenes/box.tscn" id="16_vqlhw"]
+[ext_resource type="Texture2D" uid="uid://1ew70gbl735k" path="res://Assets/Sprites/EnemyBurrow.png" id="19_hgq1i"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mnmct"]
 vertices = PackedVector2Array(1562, 1106.2031, 1562, 1105.1875, 1690, 1106.2031, 1896, 1117.25, 1690, 1105.1875, 1818, 1106.2031, 26, 1122.7266, 26, 1105.1875, 154, 1106.2031, 282, 1106.2031, 154, 1105.1875, 282, 1105.1875, 410, 1106.2031, 410, 1105.1875, 538, 1106.2031, 538, 1105.1875, 666, 1106.2031, 666, 1105.1875, 794, 1106.2031, 794, 1105.1875, 922, 1106.2031, 922, 1105.1875, 1050, 1106.2031, 1050, 1105.1875, 1178, 1106.2031, 1178, 1105.1875, 1306, 1106.2031, 1818, 1105.1875, 1896, 1105.7969, 1306, 1104, 1384, 1104, 1384, 1104.8125, 1896, 992, 26, 992, 26, 18, 1896, 18)
@@ -35,20 +39,20 @@ metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 script = ExtResource("7_vqlhw")
 scene = ExtResource("9_opn2v")
 count = 10
-spawn_rate = 2.0
+spawn_rate = 3.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
-[sub_resource type="Resource" id="Resource_la4le"]
+[sub_resource type="Resource" id="Resource_otlb7"]
 script = ExtResource("7_vqlhw")
 scene = ExtResource("9_opn2v")
 count = 10
 spawn_rate = 3.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
-[sub_resource type="Resource" id="Resource_lmqgw"]
+[sub_resource type="Resource" id="Resource_hgq1i"]
 script = ExtResource("7_vqlhw")
 scene = ExtResource("9_opn2v")
-count = 20
+count = 10
 spawn_rate = 2.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
@@ -113,7 +117,13 @@ position = Vector2(1029, 160)
 
 [node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("10_ndqic")]
 visible = false
-currenct_level = "res://Scenes/Levels/level1.tscn"
+
+[node name="LossScreen" parent="UI" unique_id=1886424522 instance=ExtResource("12_otlb7")]
+visible = false
+
+[node name="WinScreen" parent="UI" unique_id=180070478 instance=ExtResource("13_hgq1i")]
+visible = false
+next_level = ExtResource("14_wbnnf")
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=462682666]
 position = Vector2(1800, 517)
@@ -123,9 +133,12 @@ to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_nqasx"), SubReso
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=1734237674]
 wait_time = 25.0
 
+[node name="Sprite2D" type="Sprite2D" parent="EnemySpawner" unique_id=1023641283]
+texture = ExtResource("19_hgq1i")
+
 [node name="EnemySpawner2" parent="." unique_id=533580324 instance=ExtResource("6_ndqic")]
 position = Vector2(130, 518)
-to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_la4le"), SubResource("Resource_lmqgw")])
+to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_otlb7"), SubResource("Resource_hgq1i")])
 
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("10_jk2yk")]
 position = Vector2(960, 516)

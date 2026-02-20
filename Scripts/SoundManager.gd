@@ -17,6 +17,7 @@ func play_2d(audio:String, parent:Node, bus:String = "SFX", max_distance:int = 1
 
 
 func play_global(audio:String, parent:Node, bus:String = "SFX", volume:int = 0, is_music:bool = false):
+	print(typeof(SoundFiles.boom))
 	var new:AudioStreamPlayer = AudioStreamPlayer.new()
 	new.stream = load(audio)
 	new.bus = bus

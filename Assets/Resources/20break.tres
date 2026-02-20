@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpawnEntry" format=3 uid="uid://b60sti3qm1hu2"]
+
+[ext_resource type="PackedScene" uid="uid://uk4xl3k6nbqj" path="res://Scenes/Enemies/heavy_enemy.tscn" id="1_w5w03"]
+[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="2_jcl5i"]
+
+[resource]
+script = ExtResource("2_jcl5i")
+scene = ExtResource("1_w5w03")
+spawn_rate = 20.0
+metadata/_custom_type_script = "uid://bvjbq0juon6qg"

@@ -2,8 +2,7 @@ extends Control
 
 
 func _on_restart_pressed() -> void:
-	var curent_scene:String = get_tree().root.name.to_lower()
-	get_tree().change_scene_to_packed(LevelManager.level_unlocks[curent_scene])
+	get_tree().reload_current_scene()
 
 
 func _on_main_menu_pressed() -> void:

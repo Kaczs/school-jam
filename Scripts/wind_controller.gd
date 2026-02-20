@@ -46,6 +46,8 @@ func _input(event: InputEvent) -> void:
 		is_dragging = false
 		# Dont have enough to cover the cost
 		if current_wind <= 0:
+			SoundManager.play_global(SoundFiles.no_charge, self)
+			EventBus.emit_signal("out_of_wind")
 			return
 		drag_direction = accumulated_drag.normalized()
 		# If they didnt actually drag their mouse, dont do anything
@@ -56,6 +58,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			local_wind(drag_direction)
 		current_wind -= 1
+		SoundManager.play_global(SoundFiles.wind, self)
 		EventBus.emit_signal("wind_changed", current_wind)
 		EventBus.emit_signal("moving_pathfinding_objects")
 		queue_redraw()
@@ -106,6 +109,7 @@ func _draw():
 
 func _on_regen_timer_timeout() -> void:
 	if current_wind < max_wind:
+		SoundManager.play_global(SoundFiles.recharge, self)
 		current_wind += 1
 		# Primarily for the UI element showing wind
 		EventBus.emit_signal("wind_changed", current_wind)

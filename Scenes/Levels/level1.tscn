@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://b8bqcouefk1rw" path="res://Assets/Resources/wall_tileset.tres" id="1_hkfpk"]
 [ext_resource type="Script" uid="uid://cvqqmq04h5mxq" path="res://Scripts/level_starter.gd" id="1_xe7un"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="3_c0r4e"]
-[ext_resource type="Script" path="res://Scripts/spawn_entry.gd" id="4_m0h5h"]
+[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="4_m0h5h"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="5_20uw2"]
 [ext_resource type="SpriteFrames" uid="uid://brjodx7c5pirw" path="res://Assets/Resources/bottle_sprite_frames.tres" id="5_xe7un"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="6_m0h5h"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bs4o6du5c6aan" path="res://Scripts/Towers/ballista_tower.gd" id="9_4f2fw"]
 [ext_resource type="PackedScene" uid="uid://sx0w03itiw5k" path="res://Scenes/win_screen.tscn" id="9_u45xj"]
 [ext_resource type="Texture2D" uid="uid://ciigq5hsq875v" path="res://Assets/Sprites/BallistaAttackTower.png" id="10_8r8ce"]
+[ext_resource type="PackedScene" uid="uid://dwuueukg6vtee" path="res://Scenes/Levels/level2.tscn" id="10_u45xj"]
 [ext_resource type="Texture2D" uid="uid://pxbgjk60ypid" path="res://Assets/Sprites/TowerBase.png" id="11_nqasx"]
 [ext_resource type="PackedScene" uid="uid://bapnr406381qq" path="res://Scenes/tutorial_1_collider.tscn" id="12_8r8ce"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="12_ryjqc"]
@@ -51,6 +52,7 @@ script = ExtResource("1_xe7un")
 tutorial = true
 
 [node name="GroundLayer" type="TileMapLayer" parent="." unique_id=575063854]
+z_index = -2
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAD//wUAAAAAAAAAAAD//wYAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wcAAAAAAAAAAAD//wgAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAgAAAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAgAAAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAACAAcAAAAAAAAAAAACAAgAAAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAP//AAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAP//AAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAP//AAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAP//AAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAP//AAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAP//AAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAALAP//AAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAMAP//AAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAANAP//AAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAOAP//AAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAP//AAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAA=")
 tile_set = ExtResource("7_20uw2")
 
@@ -71,39 +73,41 @@ one_shot = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=731908525]
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI" unique_id=104346989]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -61.0
-offset_top = 75.0
-offset_right = -21.0
-offset_bottom = 115.0
-grow_horizontal = 0
-
-[node name="WindBottle" type="AnimatedSprite2D" parent="UI/AspectRatioContainer" unique_id=2086267264]
-sprite_frames = ExtResource("5_xe7un")
-animation = &"3"
-speed_scale = 2.0
-script = ExtResource("6_v3vqe")
-
-[node name="Panel" type="Panel" parent="UI/AspectRatioContainer/WindBottle" unique_id=643761343]
-show_behind_parent = true
-offset_left = -50.0
-offset_top = -70.0
-offset_right = 50.0
-offset_bottom = 80.0
-
 [node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("7_v3vqe")]
 visible = false
-currenct_level = "res://Scenes/Levels/level1.tscn"
 
 [node name="LossScreen" parent="UI" unique_id=1886424522 instance=ExtResource("8_syfhk")]
 visible = false
 
 [node name="WinScreen" parent="UI" unique_id=180070478 instance=ExtResource("9_u45xj")]
 visible = false
-path_to_next_level = "res://Scenes/Levels/level2.tscn"
+next_level = ExtResource("10_u45xj")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI" unique_id=419819033]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -86.0
+offset_right = 20.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="WindBottle" type="AnimatedSprite2D" parent="UI/AspectRatioContainer" unique_id=1129953578]
+sprite_frames = ExtResource("5_xe7un")
+animation = &"3"
+speed_scale = 2.0
+script = ExtResource("6_v3vqe")
+
+[node name="Panel" type="Panel" parent="UI/AspectRatioContainer/WindBottle" unique_id=1349725100]
+show_behind_parent = true
+offset_left = -50.0
+offset_top = -70.0
+offset_right = 50.0
+offset_bottom = 80.0
 
 [node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("3_c0r4e")]
 position = Vector2(98, 176)

@@ -7,6 +7,7 @@ var target:RigidBody2D
 var health:HealthComponent
 
 func _ready():
+	SoundManager.play_global(SoundFiles.bow_shoot, self)
 	if animated_sprite != null:
 		animated_sprite.play()
 

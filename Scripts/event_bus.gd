@@ -11,3 +11,5 @@ signal all_enemies_dead()
 signal enemy_has_died(enemy)
 @warning_ignore("unused_signal")
 signal player_lose()
+@warning_ignore("unused_signal")
+signal out_of_wind

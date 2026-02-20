@@ -4,11 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://oe8kvpdufmab" path="res://Assets/Sprites/AverageBeetle.png" id="2_mtu75"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="3_0u4wu"]
 [ext_resource type="Script" uid="uid://dlnn6cuk6ygi6" path="res://Scripts/health_component.gd" id="4_mtu75"]
+[ext_resource type="PackedScene" uid="uid://bh4trgwrwdd88" path="res://Assets/Particles/blood_particles.tscn" id="5_qdxfj"]
+[ext_resource type="Script" uid="uid://eqjbk7pxunco" path="res://Scripts/blood_particles.gd" id="6_n31bn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j5cq"]
-radius = 25.019993
+radius = 18.027756
 
 [node name="NormalEnemy" type="RigidBody2D" unique_id=924509886]
+z_index = 1
 collision_layer = 3
 gravity_scale = 0.0
 lock_rotation = true
@@ -24,7 +27,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_mtu75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1822093921]
-position = Vector2(1, 7)
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_4j5cq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=375047867]
@@ -38,5 +41,8 @@ visible = false
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1131251283]
 script = ExtResource("4_mtu75")
+
+[node name="BloodParticles" parent="HealthComponent" unique_id=1850738552 instance=ExtResource("5_qdxfj")]
+script = ExtResource("6_n31bn")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

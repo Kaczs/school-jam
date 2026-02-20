@@ -6,7 +6,7 @@
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfgp3"]
-bg_color = Color(0, 0, 0, 0.19607843)
+bg_color = Color(0, 0, 0, 0.39215687)
 
 [node name="WindComponent" type="Node2D" unique_id=1070236565]
 script = ExtResource("1_bljqw")

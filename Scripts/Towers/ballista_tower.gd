@@ -16,10 +16,8 @@ func _process(_delta):
 			cooldown_timer.start()
 			if needs_lineofsight:
 				if check_line_of_sight():
-					print("Shooting")
 					spawn_projectile()
 			else:
-				print("Shooting")
 				spawn_projectile()
 				
 
@@ -38,7 +36,6 @@ func spawn_projectile():
 	new_projectile.assign_target(targets[0])
 	get_tree().get_root().add_child(new_projectile)
 	new_projectile.position = position	
-
 
 func _on_cooldown_timeout() -> void:
 	# Every timeout 
