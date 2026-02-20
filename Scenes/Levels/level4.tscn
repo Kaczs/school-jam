@@ -38,6 +38,13 @@ count = 10
 spawn_rate = 2.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
+[sub_resource type="Resource" id="Resource_la4le"]
+script = ExtResource("7_vqlhw")
+scene = ExtResource("9_opn2v")
+count = 10
+spawn_rate = 3.0
+metadata/_custom_type_script = "uid://bvjbq0juon6qg"
+
 [sub_resource type="Resource" id="Resource_lmqgw"]
 script = ExtResource("7_vqlhw")
 scene = ExtResource("9_opn2v")
@@ -118,7 +125,7 @@ wait_time = 25.0
 
 [node name="EnemySpawner2" parent="." unique_id=533580324 instance=ExtResource("6_ndqic")]
 position = Vector2(130, 518)
-to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_nqasx"), SubResource("Resource_lmqgw")])
+to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_la4le"), SubResource("Resource_lmqgw")])
 
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("10_jk2yk")]
 position = Vector2(960, 516)

@@ -26,7 +26,7 @@ agent_radius = 25.0
 [sub_resource type="Resource" id="Resource_xqoth"]
 script = ExtResource("11_bngq1")
 scene = ExtResource("12_t6y87")
-count = 4
+count = 5
 spawn_rate = 2.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
@@ -34,14 +34,6 @@ metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 script = ExtResource("11_bngq1")
 scene = ExtResource("12_t6y87")
 count = 3
-spawn_rate = 3.0
-metadata/_custom_type_script = "uid://bvjbq0juon6qg"
-
-[sub_resource type="Resource" id="Resource_t27xo"]
-script = ExtResource("11_bngq1")
-scene = ExtResource("12_t6y87")
-count = 3
-spawn_rate = 1.5
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
 [sub_resource type="Resource" id="Resource_yxf76"]
@@ -49,6 +41,13 @@ script = ExtResource("11_bngq1")
 scene = ExtResource("13_keokt")
 count = 2
 spawn_rate = 5.0
+metadata/_custom_type_script = "uid://bvjbq0juon6qg"
+
+[sub_resource type="Resource" id="Resource_t27xo"]
+script = ExtResource("11_bngq1")
+scene = ExtResource("12_t6y87")
+count = 4
+spawn_rate = 1.5
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
 [node name="level2" type="Node2D" unique_id=179991829 node_paths=PackedStringArray("spawners")]
@@ -118,7 +117,7 @@ currenct_level = "res://Scenes/Levels/level1.tscn"
 
 [node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("10_pwvbg")]
 position = Vector2(150, 191)
-to_spawn = Array[ExtResource("11_bngq1")]([SubResource("Resource_xqoth"), SubResource("Resource_nqasx"), SubResource("Resource_t27xo"), SubResource("Resource_yxf76")])
+to_spawn = Array[ExtResource("11_bngq1")]([SubResource("Resource_xqoth"), SubResource("Resource_nqasx"), SubResource("Resource_yxf76"), SubResource("Resource_t27xo")])
 
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("14_cvw5d")]
 position = Vector2(1751, 900)
