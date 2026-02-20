@@ -14,11 +14,9 @@ func _ready():
 
 func win(spawner:EnemySpawner):
 	spawners.erase(spawner)
-	if spawners.is_empty():
+	if spawners.is_empty() and not $UI/LossScreen.visible:
 		LevelManager.level_complete(self)
-		var scene = load("res://MainMenu/main.tscn")
-		get_tree().change_scene_to_packed(scene)
+		$UI/WinScreen.show()
 
 func lose():
-	var scene = load("res://MainMenu/main.tscn")
-	get_tree().change_scene_to_packed(scene)
+	$UI/LossScreen.show()
