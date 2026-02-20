@@ -8,13 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://krdnhpomjc73" path="res://Scenes/UI/ui.tscn" id="5_46s4o"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="6_ndqic"]
 [ext_resource type="PackedScene" uid="uid://b25xtwhs2csqi" path="res://Scenes/movable_box.tscn" id="7_c346c"]
-[ext_resource type="Script" path="res://Scripts/spawn_entry.gd" id="7_vqlhw"]
+[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="7_vqlhw"]
+[ext_resource type="PackedScene" uid="uid://uk4xl3k6nbqj" path="res://Scenes/Enemies/heavy_enemy.tscn" id="8_la4le"]
 [ext_resource type="Script" uid="uid://dobo3k5tvfyig" path="res://Scripts/enemy_spawner.gd" id="9_c346c"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="9_opn2v"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="10_jk2yk"]
 [ext_resource type="PackedScene" uid="uid://cvyicx01sm07a" path="res://Scenes/level_menu.tscn" id="10_ndqic"]
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="12_c346c"]
 [ext_resource type="PackedScene" uid="uid://mbkdc11c52wk" path="res://Scenes/Towers/artillery_tower.tscn" id="12_lmqgw"]
+[ext_resource type="PackedScene" uid="uid://dm8wart2qijrc" path="res://Scenes/box.tscn" id="16_vqlhw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mnmct"]
 vertices = PackedVector2Array(1562, 1106.2031, 1562, 1105.1875, 1690, 1106.2031, 1896, 1117.25, 1690, 1105.1875, 1818, 1106.2031, 26, 1122.7266, 26, 1105.1875, 154, 1106.2031, 282, 1106.2031, 154, 1105.1875, 282, 1105.1875, 410, 1106.2031, 410, 1105.1875, 538, 1106.2031, 538, 1105.1875, 666, 1106.2031, 666, 1105.1875, 794, 1106.2031, 794, 1105.1875, 922, 1106.2031, 922, 1105.1875, 1050, 1106.2031, 1050, 1105.1875, 1178, 1106.2031, 1178, 1105.1875, 1306, 1106.2031, 1818, 1105.1875, 1896, 1105.7969, 1306, 1104, 1384, 1104, 1384, 1104.8125, 1896, 992, 26, 992, 26, 18, 1896, 18)
@@ -24,8 +26,8 @@ agent_radius = 25.0
 
 [sub_resource type="Resource" id="Resource_nqasx"]
 script = ExtResource("7_vqlhw")
-scene = ExtResource("9_opn2v")
-count = 3
+scene = ExtResource("8_la4le")
+count = 2
 spawn_rate = 3.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
@@ -36,10 +38,17 @@ count = 10
 spawn_rate = 2.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
-[sub_resource type="Resource" id="Resource_lmqgw"]
+[sub_resource type="Resource" id="Resource_la4le"]
 script = ExtResource("7_vqlhw")
 scene = ExtResource("9_opn2v")
 count = 10
+spawn_rate = 3.0
+metadata/_custom_type_script = "uid://bvjbq0juon6qg"
+
+[sub_resource type="Resource" id="Resource_lmqgw"]
+script = ExtResource("7_vqlhw")
+scene = ExtResource("9_opn2v")
+count = 20
 spawn_rate = 2.0
 metadata/_custom_type_script = "uid://bvjbq0juon6qg"
 
@@ -54,7 +63,6 @@ tile_set = ExtResource("1_7npjx")
 metadata/_edit_lock_ = true
 
 [node name="WindController" parent="." unique_id=1545098080 instance=ExtResource("2_kee65")]
-local_size = 400.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=673027043]
 position = Vector2(-1, 7)
@@ -75,7 +83,7 @@ one_shot = true
 position = Vector2(960, 272)
 
 [node name="MovableBox" parent="NavigationRegion2D" unique_id=1672531924 instance=ExtResource("7_c346c")]
-position = Vector2(962, 820)
+position = Vector2(941, 843)
 
 [node name="MovableBox2" parent="NavigationRegion2D" unique_id=452625989 instance=ExtResource("7_c346c")]
 position = Vector2(1464, 946)
@@ -84,7 +92,22 @@ position = Vector2(1464, 946)
 position = Vector2(1840, 941)
 
 [node name="BallistaTower2" parent="NavigationRegion2D" unique_id=837068973 instance=ExtResource("12_c346c")]
-position = Vector2(964, 972)
+position = Vector2(1089, 970)
+
+[node name="BallistaTower3" parent="NavigationRegion2D" unique_id=10420888 instance=ExtResource("12_c346c")]
+position = Vector2(387, 262)
+
+[node name="Box" parent="NavigationRegion2D" unique_id=1615796132 instance=ExtResource("16_vqlhw")]
+position = Vector2(895, 160)
+
+[node name="Box3" parent="NavigationRegion2D" unique_id=2081132356 instance=ExtResource("16_vqlhw")]
+position = Vector2(386, 367)
+
+[node name="Box4" parent="NavigationRegion2D" unique_id=1647869734 instance=ExtResource("16_vqlhw")]
+position = Vector2(385, 633)
+
+[node name="Box2" parent="NavigationRegion2D" unique_id=716636963 instance=ExtResource("16_vqlhw")]
+position = Vector2(1029, 160)
 
 [node name="UI" parent="." unique_id=1189717003 instance=ExtResource("5_46s4o")]
 
@@ -93,19 +116,18 @@ visible = false
 currenct_level = "res://Scenes/Levels/level1.tscn"
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=462682666]
-position = Vector2(1800, 520)
+position = Vector2(1800, 517)
 script = ExtResource("9_c346c")
 to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_nqasx"), SubResource("Resource_46s4o")])
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=1734237674]
-wait_time = 13.0
+wait_time = 25.0
 
 [node name="EnemySpawner2" parent="." unique_id=533580324 instance=ExtResource("6_ndqic")]
-position = Vector2(130, 520)
-to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_nqasx"), SubResource("Resource_lmqgw")])
+position = Vector2(130, 518)
+to_spawn = Array[ExtResource("7_vqlhw")]([SubResource("Resource_la4le"), SubResource("Resource_lmqgw")])
 
 [node name="Goal" parent="." unique_id=967983182 instance=ExtResource("10_jk2yk")]
 position = Vector2(960, 516)
-goal_hp = 10
 
 [connection signal="timeout" from="NavigationRegion2D/RebakeTimer" to="NavigationRegion2D" method="_on_rebake_timer_timeout"]

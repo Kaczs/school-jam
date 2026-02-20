@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bit7y8bhx05py"]
+
+[ext_resource type="Script" uid="uid://lohqncrs42ky" path="res://Scripts/artillery_marker.gd" id="1_7blbt"]
+[ext_resource type="Texture2D" uid="uid://drrtotvjdfyil" path="res://Assets/Sprites/RingAttackTower.png" id="1_urdo6"]
+
+[node name="ArtilleryMarker" type="Node2D" unique_id=1232935736]
+script = ExtResource("1_7blbt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1761437921]
+modulate = Color(0.6170686, 0.010679106, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_urdo6")
+
+[node name="Timer" type="Timer" parent="." unique_id=981147812]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

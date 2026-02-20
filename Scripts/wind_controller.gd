@@ -6,7 +6,7 @@ extends Node2D
 ## Max number of stored 'wind' uses
 @export var max_wind := 3
 @export var wind_regeneration_rate := 5.0
-var current_wind := 2
+@export var current_wind:int
 var drag_direction = Vector2(0, 0)
 var accumulated_drag = Vector2.ZERO
 var local_wind_mode = true	
@@ -42,7 +42,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			accumulated_drag += event.relative
 	# Once we release the button act on that motion
-	if Input.is_action_just_released("wind"):
+	if Input.is_action_just_released("wind") and is_dragging:
 		is_dragging = false
 		# Dont have enough to cover the cost
 		if current_wind <= 0:
@@ -64,8 +64,10 @@ func _input(event: InputEvent) -> void:
 func global_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
-		target.parent_body.apply_force(direction * (wind_force * 0.7))
-		# Slow enemies temp. when hitting them with wind?
+		target.parent_body.apply_force(direction * (wind_force * 0.8))
+		# One off case, artillery shots should stop flying to goal when hit w/ wind
+		if target.parent_body is ArtilleryProjectile:
+				target.parent_body.hit_by_wind()
 	create_global_wind_particles(direction)
 
 ## Use wind on bodies near the mouse, as opposed to the entire group
@@ -74,8 +76,10 @@ func local_wind(direction:Vector2):
 	var targets = get_tree().get_nodes_in_group("affected by wind")
 	for target in targets:
 		if target.global_position.distance_to(starting_point) <= local_size:
-			#print("Target distance: ", target.global_position.distance_to(get_viewport().get_mouse_position()))
 			target.parent_body.apply_force(direction * wind_force)
+			# One off case, artillery shots should stop flying to goal when hit w/ wind
+			if target.parent_body is ArtilleryProjectile:
+				target.parent_body.hit_by_wind()
 	# We wanna create particles even if the player isnt pushing anything
 	create_local_wind_particles(direction)
 	
