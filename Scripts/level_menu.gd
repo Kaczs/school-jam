@@ -1,6 +1,4 @@
 extends Control
-
-@export var currenct_level:String
 @onready var settings = $CenterContainer/Settings2
 @onready var menu_buttons = $CenterContainer/VBoxContainer
 
@@ -9,7 +7,7 @@ func _on_resume_pressed() -> void:
 
 
 func _on_restart_pressed() -> void:
-	get_tree().change_scene_to_file(currenct_level)
+	get_tree().reload_current_scene()
 
 
 func _on_main_menu_pressed() -> void:

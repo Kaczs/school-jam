@@ -19,5 +19,6 @@ texture = ExtResource("1_xkb4e")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=2100663169]
 radius = 40.0
-vertices = PackedVector2Array(-66, -71, -66, 67, 67, 67, 68, -72)
+vertices = PackedVector2Array(-64, -65, -64, 65, 65, 65, 64, -63)
 affect_navigation_mesh = true
+avoidance_enabled = false

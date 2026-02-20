@@ -11,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://cvyicx01sm07a" path="res://Scenes/level_menu.tscn" id="9_du1gc"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="9_rdfk5"]
 [ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="10_jedjv"]
+[ext_resource type="PackedScene" uid="uid://q6a5e0rxses2" path="res://Scenes/loss_screen.tscn" id="10_w3eof"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="11_etuld"]
+[ext_resource type="PackedScene" uid="uid://sx0w03itiw5k" path="res://Scenes/win_screen.tscn" id="11_pyjyt"]
+[ext_resource type="PackedScene" uid="uid://0gr4fcra4smn" path="res://Scenes/Levels/level4.tscn" id="12_qm4xx"]
 [ext_resource type="PackedScene" uid="uid://uk4xl3k6nbqj" path="res://Scenes/Enemies/heavy_enemy.tscn" id="12_v1uej"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="13_f80nq"]
 [ext_resource type="Script" uid="uid://cgmf4l50frubg" path="res://Scripts/tutorial2.gd" id="14_lnl7s"]
@@ -114,6 +117,13 @@ position = Vector2(968, 288)
 [node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("9_du1gc")]
 visible = false
 currenct_level = "res://Scenes/Levels/level1.tscn"
+
+[node name="LossScreen" parent="UI" unique_id=1886424522 instance=ExtResource("10_w3eof")]
+visible = false
+
+[node name="WinScreen" parent="UI" unique_id=180070478 instance=ExtResource("11_pyjyt")]
+visible = false
+next_level = ExtResource("12_qm4xx")
 
 [node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("9_rdfk5")]
 position = Vector2(158, 774)

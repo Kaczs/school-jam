@@ -1,14 +1,13 @@
 extends Control
 
-@export var path_to_next_level:String 
+@export var next_level:PackedScene
 
 func _on_next_level_pressed() -> void:
-	get_tree().change_scene_to_file(path_to_next_level)
+	get_tree().change_scene_to_packed(next_level)
 
 
 func _on_restart_pressed() -> void:
-	var curent_scene:String = get_tree().root.name.to_lower()
-	get_tree().change_scene_to_packed(LevelManager.level_unlocks[curent_scene])
+	get_tree().reload_current_scene()
 
 
 func _on_main_menu_pressed() -> void:

@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cvyicx01sm07a" path="res://Scenes/level_menu.tscn" id="10_ndqic"]
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="12_c346c"]
 [ext_resource type="PackedScene" uid="uid://mbkdc11c52wk" path="res://Scenes/Towers/artillery_tower.tscn" id="12_lmqgw"]
+[ext_resource type="PackedScene" uid="uid://q6a5e0rxses2" path="res://Scenes/loss_screen.tscn" id="12_otlb7"]
+[ext_resource type="PackedScene" uid="uid://sx0w03itiw5k" path="res://Scenes/win_screen.tscn" id="13_hgq1i"]
+[ext_resource type="PackedScene" uid="uid://brkwb8ngba104" path="res://Scenes/Levels/level5.tscn" id="14_wbnnf"]
 [ext_resource type="PackedScene" uid="uid://dm8wart2qijrc" path="res://Scenes/box.tscn" id="16_vqlhw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mnmct"]
@@ -114,6 +117,13 @@ position = Vector2(1029, 160)
 [node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("10_ndqic")]
 visible = false
 currenct_level = "res://Scenes/Levels/level1.tscn"
+
+[node name="LossScreen" parent="UI" unique_id=1886424522 instance=ExtResource("12_otlb7")]
+visible = false
+
+[node name="WinScreen" parent="UI" unique_id=180070478 instance=ExtResource("13_hgq1i")]
+visible = false
+next_level = ExtResource("14_wbnnf")
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=462682666]
 position = Vector2(1800, 517)

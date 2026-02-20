@@ -13,7 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://c2v52suxx5jrp" path="res://Scenes/Towers/ballista_tower.tscn" id="8_36ddn"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="9_agagt"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="10_qauki"]
+[ext_resource type="PackedScene" uid="uid://q6a5e0rxses2" path="res://Scenes/loss_screen.tscn" id="11_agagt"]
 [ext_resource type="PackedScene" uid="uid://dbcxo6jcxhijn" path="res://Scenes/cacti.tscn" id="11_f11tu"]
+[ext_resource type="PackedScene" uid="uid://sx0w03itiw5k" path="res://Scenes/win_screen.tscn" id="12_qauki"]
+[ext_resource type="PackedScene" uid="uid://c8epd6tejwqd3" path="res://Scenes/Levels/level6.tscn" id="13_580di"]
 [ext_resource type="Script" uid="uid://cgmf4l50frubg" path="res://Scripts/tutorial2.gd" id="13_rp22a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_580di"]
@@ -94,7 +97,13 @@ position = Vector2(1019, 966)
 
 [node name="LevelMenu" parent="UI" unique_id=2140832043 instance=ExtResource("6_t788b")]
 visible = false
-currenct_level = "res://Scenes/Levels/level1.tscn"
+
+[node name="LossScreen" parent="UI" unique_id=1886424522 instance=ExtResource("11_agagt")]
+visible = false
+
+[node name="WinScreen" parent="UI" unique_id=180070478 instance=ExtResource("12_qauki")]
+visible = false
+next_level = ExtResource("13_580di")
 
 [node name="EnemySpawner" parent="." unique_id=462682666 instance=ExtResource("9_agagt")]
 position = Vector2(123, 566)
