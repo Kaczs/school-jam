@@ -47,6 +47,7 @@ func _input(event: InputEvent) -> void:
 		# Dont have enough to cover the cost
 		if current_wind <= 0:
 			SoundManager.play_global(SoundFiles.no_charge, self)
+			EventBus.emit_signal("out_of_wind")
 			return
 		drag_direction = accumulated_drag.normalized()
 		# If they didnt actually drag their mouse, dont do anything
