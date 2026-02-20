@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dbcxo6jcxhijn"]
+
+[ext_resource type="Texture2D" uid="uid://wb11adavqalb" path="res://Assets/Sprites/CactusSmallFlower.png" id="1_hye4v"]
+[ext_resource type="Script" uid="uid://dch5uafwpr8vi" path="res://Scripts/cacti.gd" id="2_n6pkq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_to6gs"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n6pkq"]
+radius = 26.0
+
+[node name="Cacti" type="StaticBody2D" unique_id=1851072854]
+script = ExtResource("2_n6pkq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1240820390]
+texture = ExtResource("1_hye4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711479418]
+shape = SubResource("CircleShape2D_to6gs")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1307284763]
+radius = 25.0
+affect_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=2027693706]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1522661259]
+shape = SubResource("CircleShape2D_n6pkq")
+debug_color = Color(0.84313726, 0, 0, 0.41960785)
+
+[connection signal="body_shape_entered" from="DamageArea" to="." method="_on_damage_area_body_shape_entered"]
