@@ -3,9 +3,14 @@
 [ext_resource type="Script" uid="uid://c5ukg66rndiky" path="res://Scripts/normal_enemy.gd" id="1_06vei"]
 [ext_resource type="Texture2D" uid="uid://oe8kvpdufmab" path="res://Assets/Sprites/AverageBeetle.png" id="2_mtu75"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="3_0u4wu"]
+[ext_resource type="Texture2D" uid="uid://dtvgppb7mutve" path="res://Assets/Sprites/AverageBeetle_n.png" id="3_di8u2"]
 [ext_resource type="Script" uid="uid://dlnn6cuk6ygi6" path="res://Scripts/health_component.gd" id="4_mtu75"]
 [ext_resource type="PackedScene" uid="uid://bh4trgwrwdd88" path="res://Assets/Particles/blood_particles.tscn" id="5_qdxfj"]
-[ext_resource type="Script" uid="uid://eqjbk7pxunco" path="res://Scripts/blood_particles.gd" id="6_n31bn"]
+[ext_resource type="Script" path="res://Scripts/blood_particles.gd" id="6_n31bn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_t0ntk"]
+diffuse_texture = ExtResource("2_mtu75")
+normal_texture = ExtResource("3_di8u2")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j5cq"]
 radius = 18.027756
@@ -24,9 +29,10 @@ speed = 1000
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1000397959]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_mtu75")
+texture = SubResource("CanvasTexture_t0ntk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1822093921]
+visible = false
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_4j5cq")
 

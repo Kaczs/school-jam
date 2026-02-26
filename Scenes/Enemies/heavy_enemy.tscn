@@ -3,9 +3,14 @@
 [ext_resource type="Script" uid="uid://c5ukg66rndiky" path="res://Scripts/normal_enemy.gd" id="1_pwy1a"]
 [ext_resource type="Texture2D" uid="uid://drg1dyj76vako" path="res://Assets/Sprites/BigBeetle.png" id="2_pwy1a"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="3_lt8vd"]
+[ext_resource type="Texture2D" uid="uid://b4212xc67y8ph" path="res://Assets/Sprites/BigBeetle_n.png" id="3_olupi"]
 [ext_resource type="Script" uid="uid://dlnn6cuk6ygi6" path="res://Scripts/health_component.gd" id="4_olupi"]
 [ext_resource type="PackedScene" uid="uid://bh4trgwrwdd88" path="res://Assets/Particles/blood_particles.tscn" id="5_lt8vd"]
-[ext_resource type="Script" uid="uid://eqjbk7pxunco" path="res://Scripts/blood_particles.gd" id="6_olupi"]
+[ext_resource type="Script" path="res://Scripts/blood_particles.gd" id="6_olupi"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5kq2l"]
+diffuse_texture = ExtResource("2_pwy1a")
+normal_texture = ExtResource("3_olupi")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j5cq"]
 radius = 24.020824
@@ -25,7 +30,7 @@ health = 150
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1000397959]
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_pwy1a")
+texture = SubResource("CanvasTexture_5kq2l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1822093921]
 position = Vector2(0, 9)

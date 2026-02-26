@@ -4,12 +4,26 @@
 [ext_resource type="Script" uid="uid://bs4o6du5c6aan" path="res://Scripts/Towers/ballista_tower.gd" id="1_widou"]
 [ext_resource type="Texture2D" uid="uid://pxbgjk60ypid" path="res://Assets/Sprites/TowerBase.png" id="2_widou"]
 [ext_resource type="PackedScene" uid="uid://tyig0pvks8tv" path="res://Scenes/wind_component.tscn" id="4_o54qx"]
+[ext_resource type="Texture2D" uid="uid://ctu10m56qjyvv" path="res://Assets/Sprites/TowerBase_n.png" id="4_t486e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_frg81"]
+diffuse_texture = ExtResource("2_widou")
+normal_texture = ExtResource("4_t486e")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qg46"]
 size = Vector2(60, 60)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_widou"]
 radius = 700.0
+
+[sub_resource type="Gradient" id="Gradient_o54qx"]
+colors = PackedColorArray(0.4935457, 0.4935454, 0.49354553, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t486e"]
+gradient = SubResource("Gradient_o54qx")
+fill = 1
+fill_from = Vector2(0.51282054, 0.491453)
+fill_to = Vector2(0.8247863, 0.8717949)
 
 [node name="BallistaTower" type="RigidBody2D" unique_id=1845065025]
 mass = 3.0
@@ -25,7 +39,7 @@ texture = ExtResource("1_0qg46")
 
 [node name="Foundation" type="Sprite2D" parent="." unique_id=1267464107]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_widou")
+texture = SubResource("CanvasTexture_frg81")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1205763591]
 radius = 40.0
@@ -45,6 +59,12 @@ shape = SubResource("CircleShape2D_widou")
 [node name="Cooldown" type="Timer" parent="." unique_id=313998838]
 
 [node name="WindComponent" parent="." unique_id=1070236565 instance=ExtResource("4_o54qx")]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1175747479]
+scale = Vector2(20, 20)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_t486e")
+height = 200.0
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]

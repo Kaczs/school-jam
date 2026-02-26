@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://b8bqcouefk1rw" path="res://Assets/Resources/wall_tileset.tres" id="1_hkfpk"]
 [ext_resource type="Script" uid="uid://cvqqmq04h5mxq" path="res://Scripts/level_starter.gd" id="1_xe7un"]
 [ext_resource type="PackedScene" uid="uid://lvc3cohw20il" path="res://Scenes/enemy_spawner.tscn" id="3_c0r4e"]
-[ext_resource type="Script" uid="uid://bvjbq0juon6qg" path="res://Scripts/spawn_entry.gd" id="4_m0h5h"]
+[ext_resource type="Script" path="res://Scripts/spawn_entry.gd" id="4_m0h5h"]
 [ext_resource type="PackedScene" uid="uid://4xl7mw440pyc" path="res://Scenes/Enemies/normal_enemy.tscn" id="5_20uw2"]
 [ext_resource type="SpriteFrames" uid="uid://brjodx7c5pirw" path="res://Assets/Resources/bottle_sprite_frames.tres" id="5_xe7un"]
 [ext_resource type="PackedScene" uid="uid://j1ftmn1hkutc" path="res://Scenes/goal.tscn" id="6_m0h5h"]
@@ -47,6 +47,15 @@ size = Vector2(60, 60)
 [sub_resource type="CircleShape2D" id="CircleShape2D_widou"]
 radius = 400.0
 
+[sub_resource type="Gradient" id="Gradient_o54qx"]
+colors = PackedColorArray(0.4935457, 0.4935454, 0.49354553, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u45xj"]
+gradient = SubResource("Gradient_o54qx")
+fill = 1
+fill_from = Vector2(0.51282054, 0.491453)
+fill_to = Vector2(0.8247863, 0.8717949)
+
 [node name="Level1" type="Node2D" unique_id=1513130103]
 script = ExtResource("1_xe7un")
 tutorial = true
@@ -64,7 +73,7 @@ navigation_polygon = SubResource("NavigationPolygon_7u4ml")
 
 [node name="WallLayer" type="TileMapLayer" parent="NavigationRegion2D" unique_id=668879949]
 position = Vector2(1, -7)
-tile_map_data = PackedByteArray("AAD/////BQABAAAAADAAAP//BQABAAAAADABAP//BQABAAAAADACAP//BQABAAAAADADAP//BQABAAAAADAEAP//BQABAAAAADAFAP//BQABAAAAADAGAP//BQABAAAAADAHAP//BQABAAAAADAIAP//BQABAAAAADAJAP//BQABAAAAADAKAP//BQADAAAAADALAP//BQABAAAAADAMAP//BQABAAAAADANAP//BQABAAAAADAOAP//BQABAAAAADAPAP//BQABAAAAADAPAAAABQABAAAAAGAPAAEABQABAAAAAGAPAAIABQABAAAAAGAPAAMABQABAAAAAGAPAAQABQABAAAAAGAPAAUABQABAAAAAGAPAAYABQABAAAAAGAPAAcABQABAAAAAGAPAAgABQABAAAAAGD//wgABQABAAAAAFAAAAgABQADAAAAAAABAAgABQADAAAAAAACAAgABQADAAAAAAADAAgABQADAAAAAAAEAAgABQADAAAAAAAFAAgABQADAAAAAAAGAAgABQADAAAAAAAHAAgABQADAAAAAAAIAAgABQADAAAAAAAJAAgABQADAAAAAAAKAAgABQADAAAAAAALAAgABQADAAAAAAAMAAgABQADAAAAAAANAAgABQADAAAAAAAOAAgABQADAAAAAAD//wMABQABAAAAAFD//wQABQABAAAAAFD//wUABQABAAAAAFD//wYABQABAAAAAFD//wcABQABAAAAAFD//wAABQABAAAAAFD//wEABQABAAAAAFD//wIABQABAAAAAFAKAAAABQADAAAAAFAKAAEABQADAAAAAFAKAAIABQACAAAAADAJAAIABQADAAAAADAIAAIABQADAAAAADAHAAIABQADAAAAADAKAAQABQACAAAAAFAHAAQABQADAAAAAAAIAAQABQADAAAAAAAJAAQABQADAAAAAAAKAAMABQADAAAAAFA=")
+tile_map_data = PackedByteArray("AAD/////BQABAAAAADAAAP//BQABAAAAADABAP//BQABAAAAADACAP//BQABAAAAADADAP//BQABAAAAADAEAP//BQABAAAAADAFAP//BQABAAAAADAGAP//BQABAAAAADAHAP//BQABAAAAADAIAP//BQABAAAAADAJAP//BQABAAAAADAKAP//BQADAAAAADALAP//BQABAAAAADAMAP//BQABAAAAADANAP//BQABAAAAADAOAP//BQABAAAAADAPAP//BQABAAAAADAPAAAABQABAAAAAGAPAAEABQABAAAAAGAPAAIABQABAAAAAGAPAAMABQABAAAAAGAPAAQABQABAAAAAGAPAAUABQABAAAAAGAPAAYABQABAAAAAGAPAAcABQABAAAAAGAPAAgABQABAAAAAGD//wgABQABAAAAAFAAAAgABQABAAAAAAABAAgABQABAAAAAAACAAgABQABAAAAAAADAAgABQABAAAAAAAEAAgABQABAAAAAAAFAAgABQABAAAAAAAGAAgABQABAAAAAAAHAAgABQABAAAAAAAIAAgABQABAAAAAAAJAAgABQADAAAAAAAKAAgABQADAAAAAAALAAgABQADAAAAAAAMAAgABQADAAAAAAANAAgABQADAAAAAAAOAAgABQADAAAAAAD//wMABQABAAAAAFD//wQABQABAAAAAFD//wUABQABAAAAAFD//wYABQABAAAAAFD//wcABQABAAAAAFD//wAABQABAAAAAFD//wEABQABAAAAAFD//wIABQABAAAAAFAKAAAABQADAAAAAFAKAAEABQADAAAAAFAKAAIABQACAAAAADAJAAIABQADAAAAADAIAAIABQADAAAAADAHAAIABQADAAAAADAKAAQABQACAAAAAFAHAAQABQADAAAAAAAIAAQABQADAAAAAAAJAAQABQADAAAAAAAKAAMABQADAAAAAFA=")
 tile_set = ExtResource("1_hkfpk")
 
 [node name="RebakeTimer" type="Timer" parent="NavigationRegion2D" unique_id=1675021485]
@@ -151,6 +160,12 @@ shape = SubResource("CircleShape2D_widou")
 [node name="WindComponent" parent="BallistaTower" unique_id=1070236565 instance=ExtResource("12_ryjqc")]
 visible = false
 
+[node name="PointLight2D" type="PointLight2D" parent="BallistaTower" unique_id=837989100]
+scale = Vector2(20, 20)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_u45xj")
+height = 50.0
+
 [node name="Tutorial1Collider" parent="." unique_id=120829070 node_paths=PackedStringArray("tutorial_tower", "bonus_tower", "spawner") instance=ExtResource("12_8r8ce")]
 position = Vector2(743, 449)
 tutorial_tower = NodePath("../BallistaTower")
@@ -160,6 +175,14 @@ spawner = NodePath("../EnemySpawner")
 [node name="BallistaTower2" parent="." unique_id=438066032 instance=ExtResource("8_i36j2")]
 visible = false
 position = Vector2(1672, 410)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1956344804]
+color = Color(0.25302908, 0.28062117, 0.40421283, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=799778175]
+color = Color(0.97616774, 0.65169406, 0.42410052, 1)
+energy = 0.47
+height = 1.0
 
 [connection signal="body_entered" from="BallistaTower/AttackRange" to="BallistaTower" method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="BallistaTower/AttackRange" to="BallistaTower" method="_on_attack_range_body_exited"]
