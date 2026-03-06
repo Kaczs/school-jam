@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dobo3k5tvfyig" path="res://Scripts/enemy_spawner.gd" id="1_4l55s"]
 [ext_resource type="Texture2D" uid="uid://1ew70gbl735k" path="res://Assets/Sprites/EnemyBurrow.png" id="2_8h7h8"]
+[ext_resource type="Texture2D" uid="uid://dabxaito6e6pj" path="res://Assets/Sprites/EnemyBurrow_n.png" id="3_cdqhx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tdwud"]
+diffuse_texture = ExtResource("2_8h7h8")
+normal_texture = ExtResource("3_cdqhx")
 
 [node name="EnemySpawner" type="Node2D" unique_id=462682666]
 script = ExtResource("1_4l55s")
@@ -10,4 +15,4 @@ script = ExtResource("1_4l55s")
 wait_time = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=830846977]
-texture = ExtResource("2_8h7h8")
+texture = SubResource("CanvasTexture_tdwud")

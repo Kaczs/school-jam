@@ -16,11 +16,11 @@ size = Vector2(60, 60)
 [sub_resource type="CircleShape2D" id="CircleShape2D_widou"]
 radius = 700.0
 
-[sub_resource type="Gradient" id="Gradient_o54qx"]
+[sub_resource type="Gradient" id="Gradient_t486e"]
 colors = PackedColorArray(0.4935457, 0.4935454, 0.49354553, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t486e"]
-gradient = SubResource("Gradient_o54qx")
+gradient = SubResource("Gradient_t486e")
 fill = 1
 fill_from = Vector2(0.51282054, 0.491453)
 fill_to = Vector2(0.8247863, 0.8717949)
@@ -64,7 +64,7 @@ shape = SubResource("CircleShape2D_widou")
 scale = Vector2(20, 20)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_t486e")
-height = 200.0
+height = 20.0
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]

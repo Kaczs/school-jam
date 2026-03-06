@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://c3df5riw0hr51"]
+
+[ext_resource type="Texture2D" uid="uid://du5jd64838nuv" path="res://Assets/Sprites/SandBase.png" id="1_x0xlf"]
+[ext_resource type="Texture2D" uid="uid://crqpy2ymxwsk7" path="res://Assets/Sprites/SandBase_n.png" id="2_lvbgy"]
+
+[resource]
+diffuse_texture = ExtResource("1_x0xlf")
+normal_texture = ExtResource("2_lvbgy")
+specular_color = Color(0, 0, 0, 1)
+specular_shininess = 0.0
